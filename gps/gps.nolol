@@ -35,6 +35,7 @@ while true do
         $ Rec4DistSqrd=MaxRange-Rec1Signal
         Rec4DistSqrd*=Rec4DistSqrd
     else
+        // quad logic
         Rec1DistSqrd=MaxRange-Rec1Signal
         Rec1DistSqrd*=Rec1DistSqrd
         Rec2DistSqrd=MaxRange-Rec2Signal

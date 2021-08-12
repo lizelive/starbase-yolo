@@ -1,5 +1,0 @@
-:tz=1000 :tx=0 :ty=0
-ifnot :DoMine thengoto2end b=0
-ifnot :DoMine thengoto1end b+=0.1 c=(b+3.141)%6.282-3.141
-d=10*b*(c-c^3/6+c^5/120-c^7/5040) e=10*b*(1-c^2/2+c^4/24-c^6/720)
-f=:RFD :tx=d :ty=e :tz=f goto3

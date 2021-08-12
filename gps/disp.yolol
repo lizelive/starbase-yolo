@@ -1,3 +1,0 @@
-b=:t c=:x d=:y e=:z f=(b-g)*0.2 h=c-i j=d-k l=e-m
-n=sqrt(h^2+j^2+l^2)/f g=b i=c k=d m=e
-:_="GPS\nX: "+:x+"\nY: "+:y+"\nY: "+:z+"\nS: "+n goto1
