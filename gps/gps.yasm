@@ -1,0 +1,82 @@
+##config
+#define Rec1Target :t1
+#define Rec2Target :t2
+#define Rec3Target :t3
+#define Rec4Target :t4
+#define Rec1Signal :s1
+#define Rec2Signal :s2
+#define Rec3Signal :s3
+#define Rec4Signal :s4
+
+#define OutX :x
+#define OutY :y
+#define OutZ :z
+#define OutT :t
+
+## const var names
+#define TargetPrefix a
+#define MaxRange d
+
+#define Target1 e
+#define Target2 f
+#define Target3 g
+#define Target4 h
+
+#define C1 i
+#define C2 j
+#define C3 k
+#define C4 l
+#define C5 m
+#define C6 n
+#define C7 o
+
+##varible names
+#define Rec1DistSqrd p
+#define Rec2DistSqrd q
+#define Rec3DistSqrd c
+#define Rec4DistSqrd b
+
+@setup:
+    ## recivier names
+    Target1="origin_north";
+    Target2="origin_south";
+    Target3="origin_east";
+    Target4="origin_west";
+@:
+    MaxRange=1000000;
+    C1=1280000;
+    C2=295384.615;
+    C3=-202105.263;
+    C4=-218947.368;
+    C5=320000;
+@:
+    C6=1386666.667;
+    C7=160000;
+@:
+    Rec1Target=Target1;
+    Rec2Target=Target2;
+    Rec3Target=Target3;
+    Rec4Target=Target4;
+
+@quad:
+#define measure(X) {
+    RecXDistSqrd=MaxRange-RecXSignal;
+    RecXDistSqrd*=RecXDistSqrd
+}
+
+measure(1);
+measure(2);
+measure(3);
+measure(4);
+@calc:
+OutX=(Rec1DistSqrd+Rec2DistSqrd)/C1+Rec3DistSqrd/C2+Rec4DistSqrd/C3;
+OutY=Rec1DistSqrd/C4+Rec2DistSqrd/C5+(Rec3DistSqrd+Rec4DistSqrd)/C6;
+OutZ=(Rec3DistSqrd+Rec4DistSqrd-Rec1DistSqrd-Rec2DistSqrd)/C7;
+OutT++;
+goto{quad}
+
+@:
+OutX=a*OutX1+b*OutX2+c*OutX3;
+OutX=a*OutX1+b*OutX2+c*OutX3;
+OutX=a*OutX1+b*OutX2+c*OutX3;
+goto{@}

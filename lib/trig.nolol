@@ -1,0 +1,38 @@
+include "std/math"
+
+// do modulus from -Pi to Pi
+macro trig_mod(x) expr
+	math_mod(x+math_pi,2*math_pi)-math_pi
+end
+
+macro bhaskara_sin(x) expr
+	16*x*(math_pi-x)/(5*math_pi^2-4*x*(math_pi-x))
+end
+
+macro sin(x) expr
+	x-x^3/6+x^5/120-x^7/5040
+end
+
+macro cos(x) expr
+	1-x^2/2+x^4/24-x^6/720
+end
+
+macro atan(x) expr
+	x-x^3/3+x^5/5-x^7/7
+end
+
+macro asin(x) expr
+	x+x^3/6+3*x^5/40+5*x^7/112
+end
+
+macro acos(x) expr
+	math_pi/2-x-x^3/6-3*x^5/40-5*x^7/112
+end
+
+macro FastArcTan(x) expr
+	math_pi*4*x-x*math_abs(x)
+end
+
+macro arctan(y, x) expr
+	asin(y/sqrt(x^2+y^2))
+end

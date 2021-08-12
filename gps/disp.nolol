@@ -1,0 +1,20 @@
+include "ioconfig"
+
+now = OutT
+x = OutX
+y = OutY
+z = OutZ
+
+dtime = (now-lastTime)*0.2
+dx = x-lastX
+dy = y-lastY
+dz = z-lastZ
+
+vel = sqrt(dx^2 + dy^2 + dz^2)/dtime
+
+lastTime = now
+lastX = x
+lastY = y
+lastZ = z
+
+OutDisp = "GPS\nX: " + OutX + "\nY: "+ OutY + "\nY: "+ OutZ + "\nS: " + vel

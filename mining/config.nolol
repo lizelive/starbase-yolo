@@ -1,0 +1,20 @@
+define :RangeFinderDistance=:RFD
+
+define :TurretRotation=:tr1
+define :TurretPitch=:tp1
+
+// the spiral varibles. relative to range finder.
+define :TargetX=:tx
+define :TargetY=:ty
+define :TargetZ=:tz
+define :Time=:Time
+
+define Scale=10
+define Speed=0.1
+//should i be mining?
+define :Active = :DoMine
+
+//the offset of this turret
+define PosX=0
+define PosY=0
+define PosZ=0

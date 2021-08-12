@@ -1,0 +1,15 @@
+include "config"
+include "../lib/trig"
+
+x=:TargetX-PosX
+y=:TargetY-PosY
+z=:TargetZ-PosZ
+
+define dPlaner=sqrt(x^2+y^2)
+define distance=sqrt(x^2+y^2+z^2)
+slopePlanner=y/dPlaner
+slopeDepth=z/distance
+pitch=acos(slopeDepth)
+rotation=acos(slopePlanner)
+:TurretRotation=rotation
+:TurretPitch=pitch

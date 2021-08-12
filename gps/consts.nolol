@@ -1,0 +1,15 @@
+Target1="origin_north"
+Target2="origin_south"
+Target3="origin_east"
+Target4="origin_west"
+MaxRange=1000000
+C1=1280000
+C2=295384.615
+C3=-202105.263
+C4=-218947.36
+C5=320000
+C6=1386666.667
+C7=160000
+
+define true=1
+define false=0
