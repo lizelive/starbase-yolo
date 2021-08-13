@@ -1,0 +1,6 @@
+include "std/math"
+
+// do modulus from -Pi to Pi
+macro trig_mod(x) expr
+	math_mod(x+math_pi,2*math_pi)-math_pi
+end

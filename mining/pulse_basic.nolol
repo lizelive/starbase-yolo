@@ -1,0 +1,5 @@
+include "std/math"
+define PulseOn=:PulseOn
+define PulseCycle=5
+define LaserOn=:MiningLaserOn
+LaserOn = math_mod(time(),PulseCycle) < PulseOn 

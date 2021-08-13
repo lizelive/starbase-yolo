@@ -11,5 +11,5 @@ slopePlanner=y/dPlaner
 slopeDepth=z/distance
 pitch=acos(slopeDepth)
 rotation=acos(slopePlanner)
-:TurretRotation=180/math_pi*rotation
-:TurretPitch=180/math_pi*pitch
+:TurretRotation=rotation
+:TurretPitch=pitch
