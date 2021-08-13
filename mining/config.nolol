@@ -9,8 +9,8 @@ define :TargetY=:ty
 define :TargetZ=:tz
 define :Time=:Time
 
-define Scale=10
-define Speed=0.1
+define Scale=0.1
+define Speed=1.0
 //should i be mining?
 define :Active = :DoMine
 

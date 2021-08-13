@@ -5,11 +5,13 @@ x=:TargetX-PosX
 y=:TargetY-PosY
 z=:TargetZ-PosZ
 
-define dPlaner=sqrt(x^2+y^2)
-define distance=sqrt(x^2+y^2+z^2)
-slopePlanner=y/dPlaner
-slopeDepth=z/distance
-pitch=acos(slopeDepth)
-rotation=acos(slopePlanner)
-:TurretRotation=180/math_pi*rotation
-:TurretPitch=180/math_pi*pitch
+
+//do the pitch
+slopeDepth=z/sqrt(x^2+y^2+z^2)
+pitch=asin(slopeDepth)
+// rotate the turret idealy this would be arctan(y,x) or something but can't do that becuse fml
+atan2(y,x,rotation)
+// these should happen on same frame
+$ :TurretRotation=rotation*rad_to_deg
+:TurretPitch=pitch*rad_to_deg
+

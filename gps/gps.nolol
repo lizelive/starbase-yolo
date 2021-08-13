@@ -11,11 +11,6 @@ $ quad=0
 quad=Rec1DistSqrd and Rec2DistSqrd and Rec3DistSqrd and Rec4DistSqrd and Rec1DistSqrd
 $ disp=0
 
-lastTime = 0
-lastX = 0
-lastY = 0
-lastZ = 0
-
 while true do
     if not quad then
         //macros don't seem to expand properly here so need to do it by hand
