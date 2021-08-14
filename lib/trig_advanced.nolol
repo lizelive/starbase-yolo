@@ -1,0 +1,17 @@
+include "std/math"
+define rad_to_deg=180/math_pi
+// do modulus from -Pi to Pi
+
+macro trig_mod(x) expr
+	math_mod(x+math_pi,2*math_pi)-math_pi
+end
+
+// do arctan
+macro math_atan2(out, y, x) block
+	sgny=math_sign(y)
+	atanyx=0
+	// must be on same line
+	t = y/x
+	math_atan(atanyx, t)
+	$ out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny^2)*180
+end

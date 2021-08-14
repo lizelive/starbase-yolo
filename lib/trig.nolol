@@ -1,45 +1,27 @@
-include "std/math"
-define rad_to_deg=180/math_pi
-// do modulus from -Pi to Pi
-macro trig_mod(x) expr
-	math_mod(x+math_pi,2*math_pi)-math_pi
+include "trig_advanced"
+
+macro math_tan(out, x) block
+	out = tan(x)
 end
 
-macro sin(x) expr
-	x-x^3/6+x^5/120-x^7/5040
+macro math_cos(out, x) block
+	out = cos(x)
 end
 
-macro cos(x) expr
-	1-x^2/2+x^4/24-x^6/720
+macro math_sin(out, x) block
+	out = sin(x)
 end
 
-macro asin(x) expr
-	x+x^3/6+3*x^5/40+5*x^7/112
+macro math_atan(out, x) block
+	out = atan(x)
 end
 
-macro acos(x) expr
-	math_pi/2-x-x^3/6-3*x^5/40-5*x^7/112
+macro math_acos(out, x) block
+	out = acos(x)
 end
 
-macro atan(x) expr
-	math_pi/4*x-x*(math_abs(x)-1)*(0.245+0.066*math_abs(x))
+macro math_asin(out, x) block
+	out = asin(x)
 end
 
-macro atan2(y, x, out) block
-	if x==0 then
-	atanyx = 0
-	else
-	y_over_x=y/x
-	atanyx = atan(y_over_x)
-	end
-
-	sgny=math_sign(y)
-	out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny^2)*math_pi
-end
-
-// +	1
-// 0	1
-// -	-1
-
-
-
+math_atan2(:atan2,:x,:y)

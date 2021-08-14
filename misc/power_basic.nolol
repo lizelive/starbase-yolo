@@ -1,0 +1,58 @@
+// this manages one generator and an array of batts
+// 1 = max, 0 = auto, -1 = off
+
+// if you want to know how much power you are using
+include "std/math"
+define NumBats=10
+
+define MaxSocketPower=10000
+
+now=time()
+dTime=(now-last)/5
+
+storedPower=NumBats*:StoredBatteryPower
+maxStoredPower=NumBats*:MaxBatteryPower
+unitStoredPower=storedPower/maxStoredPower
+define batteryNet=storedPower-lastStoredPower
+batteryRate=batteryNet/dTime
+
+powerGenerated=MaxSocketPower/100*:SocketUnitRate
+
+generatorMode=:GeneratorMode
+
+msg=""
+
+msg+="Mode: "
+if generatorMode then
+	msg+="Manu"
+	genUnitPower=(generatorMode+1)/2
+else
+	msg+="Auto"
+	genUnitPower=1-unitStoredPower
+	
+end
+
+
+timeToExtreme=math_floor(timeToExtreme)
+percentageStoredPower=1000*unitStoredPower/10
+msg+="\nBat: "+percentageStoredPower+"% " 
+if math_abs(batteryRate)<0.1 then
+	if batteryRate<0 then
+		msg += "e"
+		timeToExtreme=storedPower/batteryRate	
+	else
+		msg += "f"
+		timeToExtreme=(maxStoredPower-storedPower)/batteryRate
+	end
+	msg += " in "+timeToExtreme+"s"
+end
+
+msg+="\nGen: "+powerGenerated+"e/s set "+genUnitPower
+// apply changes
+:FuelChamberUnitRateLimit=100*genUnitPower
+:PowerInfo=msg
+
+// update old
+lastStoredPower=storedPower
+last=now
+
