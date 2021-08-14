@@ -1,0 +1,61 @@
+include "std/math"
+define rad_to_deg=180/math_pi
+define math_half_rot=180
+define math_full_rot=360
+define math_tau=2*math_pi
+define math_quater_rot=90
+define deg_to_rad=math_pi/180
+
+macro angle_mod(x) expr
+	math_mod(x+math_half_rot,math_full_rot)-math_half_rot
+end
+
+macro Power(x, y) expr
+	x^y
+end
+
+macro math_acos(out, x) block
+	out = 90-57.296*x-9.549*Power(x,3)-4.297*Power(x,5)-2.558*Power(x,7)
+end
+
+macro math_asin(out, x) block
+	out = 57.296*x+9.549*Power(x,3)+4.297*Power(x,5)+2.558*Power(x,7)
+end
+
+macro math_sin(out, x) block
+	o=angle_mod(x)
+	s=math_sign(o)
+	o = abs(o)
+    t = 180-o
+    out=s*4*o*t/(40500-o)*t
+end
+
+macro math_tan(out, x) block
+	o=angle_mod(x)
+	s=math_sign(o)
+	o = abs(o)
+    t = 180-o
+    out=s*4*o*t/(40500-o)*t
+end
+
+macro math_cos(out, x) block
+	o=angle_mod(x)
+	s=math_sign(o)
+	y=(deg_to_rad*o)^2
+	out=s*(1-20*y/(4*y+math_tau^2))
+end
+
+// do modulus from -Pi to Pi
+macro trig_mod(x) expr
+	math_mod(x+math_pi,2*math_pi)-math_pi
+end
+
+// do arctan
+macro math_atan2(out, y, x) block
+	sgny=math_sign(y)
+	atanyx=0
+	// must be on same line
+	t = y/x
+	math_atan(atanyx, t)
+	$ out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny^2)*180
+end

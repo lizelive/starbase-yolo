@@ -14,20 +14,20 @@ $ disp=0
 while true do
     if not quad then
         //macros don't seem to expand properly here so need to do it by hand
-        Rec1Target=Target1
-        $ Rec1DistSqrd=MaxRange-Rec1Signal
+        Rec1Target=Target1 $
+        Rec1DistSqrd=MaxRange-Rec1Signal
         Rec1DistSqrd*=Rec1DistSqrd
 
-        Rec1Target=Target2
-        $ Rec2DistSqrd=MaxRange-Rec1Signal
+        Rec1Target=Target2 $
+        Rec2DistSqrd=MaxRange-Rec1Signal
         Rec2DistSqrd*=Rec2DistSqrd
 
-        Rec1Target=Target3
-        $ Rec3DistSqrd=MaxRange-Rec1Signal
+        Rec1Target=Target3 $
+        Rec3DistSqrd=MaxRange-Rec1Signal
         Rec3DistSqrd*=Rec3DistSqrd
 
-        Rec1Target=Target4
-        $ Rec4DistSqrd=MaxRange-Rec1Signal
+        Rec1Target=Target4 $
+        Rec4DistSqrd=MaxRange-Rec1Signal
         Rec4DistSqrd*=Rec4DistSqrd
     else
         // quad logic

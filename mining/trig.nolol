@@ -23,5 +23,3 @@ end
 macro math_asin(out, x) block
 	out = asin(x)
 end
-
-math_atan2(:atan2,:x,:y)
