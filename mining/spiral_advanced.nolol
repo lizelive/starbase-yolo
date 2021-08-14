@@ -1,4 +1,4 @@
-include "trig_advanced"
+include "trig"
 include "config"
 include "std/logic"
 include "std/math"
@@ -12,10 +12,9 @@ logic_wait(not :Active)
 t=0
 while :Active do
     t+=Speed
-    o=trig_mod(t)
-    math_sin(x,o)
+    math_sin(x,t)
     x*=Scale*t
-    math_cos(y,o)
+    math_cos(y,t)
     y*=Scale*t
     
     z=:RangeFinderDistance
