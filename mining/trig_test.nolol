@@ -1,0 +1,49 @@
+
+include "trig"
+
+x=-360
+maxError=0
+while x<360 do
+	math_cos(out,x)	
+	$
+	truth=cos(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=0.01
+end
+:cosError=maxError
+
+x=-360
+maxError=0
+while x<360 do
+	$
+	math_sin(out,x)
+	$
+	truth=sin(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=0.01
+end
+:sinError=maxError
+
+
+x=-360
+maxError=0
+while x<360 do
+	$
+	math_tan(out,x)
+	$
+	truth=tan(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=0.01
+end
+:tanError=maxError
+
+:done=1

@@ -1,0 +1,43 @@
+
+include "trig"
+x=-1
+maxError=0
+while x<1 do
+	math_acos(out,x)	
+	truth=acos(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=0.01
+end
+:acosError=maxError
+
+x=-1
+maxError=0
+while x<1 do
+	math_asin(out,x)	
+	truth=asin(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=0.01
+end
+:asinError=maxError
+
+x=-2
+maxError=0
+while x<100 do
+	math_atan(out,x)	
+	truth=atan(x)
+	error=abs(truth-out)
+	if error>maxError then
+		maxError=error
+	end
+	x+=1
+end
+:atanError=maxError
+
+
+:done=1
