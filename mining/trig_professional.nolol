@@ -1,0 +1,48 @@
+include "std/math"
+include "std/logic"
+
+define rad_to_deg=180/math_pi
+define math_half_rot=180
+define math_full_rot=360
+define math_tau=2*math_pi
+define math_quater_rot=90
+define deg_to_rad=math_pi/180
+
+macro angle_mod(x) expr
+	acos(sin(x))
+end
+
+macro math_acos(out, x) block
+	out=acos(x)
+end
+
+macro math_asin(out, x) block
+	out=asin(x)
+end
+
+macro math_atan(out, x) block
+	out=atan(x)
+end
+
+macro math_tan(out, x) block
+	out = tan(x)
+end
+
+// Bhaskara I method, acurate within 0.002
+macro math_sin(out, x) block
+	out = sin(x)
+end
+
+// acurate within 0.002
+macro math_cos(out, x) block
+	out = cos(x)
+end
+
+
+// really need to optimize this.
+macro math_atan2(out, y, x) block
+	sgny=math_sign(y)
+	atanyx=0
+	t=y/x; atanyx= math_atan(atanyx,t)
+	$ out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny^2)*180
+end

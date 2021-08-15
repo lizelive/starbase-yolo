@@ -1,17 +1,13 @@
 include "config"
 include "trig"
 
-x=:TargetX-PosX
-y=:TargetY-PosY
-z=:TargetZ-PosZ
+x=TargetX-PosX; y=TargetY-PosY; z=TargetZ-PosZ
 
 
 //do the pitch
 slopeDepth=z/sqrt(x^2+y^2+z^2)
 math_asin(pitch, slopeDepth)
 // rotate the turret idealy this would be arctan(y,x) or something but can't do that becuse fml
-math_atan2(rotation, y,x)
+math_atan2(rotation, x,x)
 // these should happen on same frame
-$ :TurretRotation=rotation*rad_to_deg
-:TurretPitch=pitch*rad_to_deg
-
+TurretRotation=rotation; TurretPitch=pitch

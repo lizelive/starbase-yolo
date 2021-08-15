@@ -1,2 +1,2 @@
 include "config"
-:Time = time()
+:Time = time()/5

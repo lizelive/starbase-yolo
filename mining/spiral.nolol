@@ -1,0 +1,12 @@
+include "trig_advanced"
+include "config"
+
+// resting position
+t=MineTime*Speed
+math_sin(x,t)
+math_cos(y,t)
+s = Scale / 360
+x*=s*t
+y*=s*t
+z=RangeFinderDistance   
+TargetX=z; TargetY=y; TargetZ=x

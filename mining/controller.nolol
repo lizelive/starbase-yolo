@@ -1,0 +1,10 @@
+include "config"
+include "std/logic"
+include "std/math"
+
+
+logic_wait(not :Active)
+t=0
+while :Active do
+    :MineTime = time()/5
+end

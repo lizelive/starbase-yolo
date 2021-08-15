@@ -65,8 +65,8 @@ end
 macro math_atan2(out, y, x) block
 	sgny=math_sign(y)
 	atanyx=0
-	// must be on same line
+	t=0 // need this becuse compiler shinanigans
 	t=y/x
-	math_atan(atanyx,t)	
+	math_atan(atanyx,t)
 	$ out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny^2)*180
 end
