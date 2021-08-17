@@ -8,6 +8,6 @@ x=TargetX-PosX; y=TargetY-PosY; z=TargetZ-PosZ
 slopeDepth=z/sqrt(x^2+y^2+z^2)
 math_asin(pitch, slopeDepth)
 // rotate the turret idealy this would be arctan(y,x) or something but can't do that becuse fml
-math_atan2(rotation, x,x)
+math_atan2(rotation, -x , y)
 // these should happen on same frame
 TurretRotation=rotation; TurretPitch=pitch

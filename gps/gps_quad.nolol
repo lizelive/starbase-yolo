@@ -1,0 +1,26 @@
+include "ioconfig"
+include "consts"
+
+Rec1Target=Target1
+Rec2Target=Target2
+Rec3Target=Target3
+Rec4Target=Target4
+
+// autoconfig
+
+while true do
+	
+	R1=MaxRange-Rec1Signal
+	R1*=R1
+	R2=MaxRange-Rec2Signal
+	R2*=R2
+	R3=MaxRange-Rec3Signal
+	R3*=R3
+	R4=MaxRange-Rec4Signal
+	R4*=R4
+	
+	time=:Time
+	// end
+	OutX=R1/CX1+R2/CX2+R3/CX3+R4/CX4; OutY=R1/CY1+R2/CY2+R3/CY3+R4/CY4; OutZ=R1/CZ1+R2/CZ2+R3/CZ3+R4/CZ4; OutT=time
+end
+//goto loop

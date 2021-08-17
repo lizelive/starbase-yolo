@@ -1,0 +1,21 @@
+macro vector_sub(xo, yo, zo, xa, ya, za, xb, yb, zb) block
+	xo=xa-xb
+	yo=ya-yb
+	zo=za-zb
+end
+
+macro vector_norm2(o, x, y, z) block
+	o=x*x+y*y+z*z
+end
+
+
+macro vector_norm(o, x, y, z) block
+	o=sqrt(x*x+y*y+z*z)
+end
+
+macro vector_normalize(x, y, z) block
+	vector_norm(l,x,y,z)	
+	x/=l
+	y/=l
+	z/=l
+end

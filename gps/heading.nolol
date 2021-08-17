@@ -1,0 +1,51 @@
+include "../lib/trig_advanced"
+include "../lib/vector"
+include "../config"
+
+define MinSpeedForMovement=1
+
+
+// read sensor 1
+X1=Reciver1X
+Y1=Reciver1Y
+Z1=Reciver1Z
+T1=Reciver1T
+
+// x1 is either from the a
+
+// calculate movement vector
+vector_sub(fX,fY,fZ,X1,Y1,Z1,X2,Y2,Z2)
+dt=T1-T2
+vector_norm2(speed,fX,fY,fZ)
+speed/=dt
+
+if speed<MinSpeedForMovement then
+	X2=Reciver2X
+	Y2=Reciver2Y
+	Z2=Reciver2Z
+	T2=Reciver2T
+	
+	// assert that 
+	assert(T1==T2,"reciver time does not match")	
+	// use the rear sensor to decide forward
+	vector_sub(fX,fY,fZ,X1,Y1,Z1,X2,Y2,Z2)	
+end
+
+
+vector_normalize(fX,fY,fZ)
+
+
+//todo figure out the solar rotation angle from estimated time 
+clock=:Time
+LightOffsetVertical=:LightOffsetVertical
+LightOffsetVertical=:LightOffsetHorizontal
+
+sX=0
+sY=0
+sZ=0
+
+// copy old value
+X2=X1
+Y2=Y1
+Z2=Z1
+T2=T1

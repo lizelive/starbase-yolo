@@ -1,0 +1,33 @@
+define Time=:time
+
+define Reciver1X=:x
+define Reciver1Y=:y
+define Reciver1Z=:z
+define Reciver1T=:t
+define Reciver2X=:u
+define Reciver2Y=:v
+define Reciver2Z=:w
+define Reciver2T=:s
+
+define Error=:error
+
+
+define true=1
+define false=0
+
+macro assert(cond, msg) block
+	if cond then
+		Error=Time+":"+msg
+	end
+end
+
+macro hcf() block
+	while 1 do
+	end
+end
+
+macro asserthcf(cond, msg) block
+	while cond do
+		Error=Time+":"+msg
+	end
+end

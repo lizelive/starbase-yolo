@@ -14,6 +14,6 @@ define Speed=:Speed
 define DoMine=:Fire
 
 //the offset of this turret
-define PosX=0
-define PosY=0
+define PosX=:px
+define PosY=:py
 define PosZ=0

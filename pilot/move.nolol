@@ -1,0 +1,35 @@
+define IForwardBack=:FcuForward
+define IRightLeft=:FcuRightLeft
+define IFcuUpDown=:FcuUpDown
+define IRotationalPitch=:FcuRotationalPitch
+define IRotationalYaw=:FcuRotationalYaw
+define IRotationalRoll=:FcuRotationalRoll
+
+define OForward=:OutForward
+define OBackwards=:OutBack
+define ORightLeft=:OutRightLeft
+define OFcuUpDown=:OutUpDown
+define ORotationalPitch=:OutRotationalPitch
+define ORotationalYaw=:OutRotationalYaw
+define ORotationalRoll=:OutRotationalRoll
+
+
+
+define drag=0.95
+define auth = 0.4
+
+forwardBack=IForwardBack
+
+fVel =  fVel*drag + forwardBack*auth
+forwardBack = fVel - forwardBack
+OForward=forwardBack
+OBackwards=-forwardBack
+
+
+
+
+// rightLeft=IRightLeft
+// fcuUpDown=IFcuUpDown
+// rotationalPitch=IRotationalPitch
+// rotationalYaw=IRotationalYaw
+// rotationalRoll=IRotationalRoll

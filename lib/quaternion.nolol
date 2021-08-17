@@ -1,0 +1,40 @@
+include "trig"
+
+macro quat_rot_angle(out, q0, q1, q2, q3) block
+	math_acos(t,q0)	
+	out=t*2
+end
+
+macro quat_to_axis_angle(ox, oy, oz, q0, q1, q2, q3) block
+	math_acos(t,q0)	
+	if t then
+		math_sin(t,t)		
+		ox=q1/t
+		oy=q2/t
+		oz=q3/t
+	else
+		ox=1
+		oy=0
+		oz=0
+	end
+end
+
+macro quat_length(o, q0, q1, q2, q3) block
+	o=sqrt(q0*q0+q1*q1+q2*q2+q3*q3)
+end
+
+macro quat_inverse(o0, o1, o2, o3, q0, q1, q2, q3) block
+	o0=q0
+	o1=-q1
+	o2=-q2
+	o3=-q3
+end
+
+macro quat_mult(o0, o1, o2, o3, r0, r1, r2, r3, s0, s1, s2, s3) block
+	o0=r0*s0-r1*s1-r2*s2-r3*s3
+	o1=r0*s1+r1*s0-r2*s3+r3s2
+	o2=r0*s2+r1*s3+r2*s0-r3s1
+	o3=r0*s3-r1*s2+r2*s1+r3s0
+end
+
+quat_mult(o0,o1,o2,o3,r0,r1,r2,r3,s0,s1,s2,s3)

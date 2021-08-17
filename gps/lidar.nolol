@@ -1,0 +1,17 @@
+define LaserDist=:LD
+define LaserTime=:LT
+define LaserX=:LX
+define LaserY=:LY
+
+
+define Dist=:RF1
+define X=0
+define Y=0
+
+
+if LaserTime>:Time or LaserDist>Dist then
+	LaserDist=Dist
+	LaserTime=Time
+    LaserX=X
+    LaserY=Y
+end

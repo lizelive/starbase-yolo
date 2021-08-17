@@ -4,55 +4,76 @@
 // if you want to know how much power you are using
 include "std/math"
 define NumBats=10
+define NumGenerators=3
 
+
+//constant
 define MaxSocketPower=10000
 
 now=time()
 dTime=(now-last)/5
 
-storedPower=NumBats*:StoredBatteryPower
-maxStoredPower=NumBats*:MaxBatteryPower
+storedPower=0
+unitStoredPower=0
+define storedPower=NumBats*:StoredBatteryPower
+define maxStoredPower=NumBats*:MaxBatteryPower
 unitStoredPower=storedPower/maxStoredPower
-define batteryNet=storedPower-lastStoredPower
-batteryRate=batteryNet/dTime
+totalNetPower=storedPower-lastStoredPower
+batteryRate=totalNetPower/dTime
 
-powerGenerated=MaxSocketPower/100*:SocketUnitRate
+fuelRate=fuelNet/dTime
 
-generatorMode=:GeneratorMode
+powerGenerated=0; powerGenerated=(MaxSocketPower/100)*:SocketUnitRate $
+generatorMode=0; generatorMode=:GeneratorMode $
+
+// what percentage fuel i have	
+unitFuelStored=:FuelChamberFuel/:FuelChamberMaxFuel
+define totalNetPower = batteryNet
+fuelLeftS = unitFuelStored / fuelRate
 
 msg=""
 
-msg+="Mode: "
+msg+="Gen: "
 if generatorMode then
-	msg+="Manu"
+	msg+="M"
 	genUnitPower=(generatorMode+1)/2
 else
-	msg+="Auto"
+	msg+="A"
 	genUnitPower=1-unitStoredPower
 	
 end
+msg+=genUnitPower+" "+powerGenerated+"e/s"+
+:FuelChamberUnitRateLimit=100*genUnitPower $
 
 
-timeToExtreme=math_floor(timeToExtreme)
 percentageStoredPower=1000*unitStoredPower/10
-msg+="\nBat: "+percentageStoredPower+"% " 
-if math_abs(batteryRate)<0.1 then
+msg+="\nBat: "+percentageStoredPower+"% "
+if math_abs(batteryRate)>0.1 then
 	if batteryRate<0 then
-		msg += "e"
-		timeToExtreme=storedPower/batteryRate	
+		msg+="e"
+		timeToExtreme=storedPower/batteryRate
 	else
-		msg += "f"
+		msg+="f"
 		timeToExtreme=(maxStoredPower-storedPower)/batteryRate
 	end
-	msg += " in "+timeToExtreme+"s"
+	timeToExtreme=math_floor(timeToExtreme)
+	msg+=" in "+timeToExtreme+"s"
 end
 
-msg+="\nGen: "+powerGenerated+"e/s set "+genUnitPower
-// apply changes
-:FuelChamberUnitRateLimit=100*genUnitPower
-:PowerInfo=msg
+:PowerInfo=msg $
+
+
+
+
+
+
+// handle transponder
+inSafeZone=:insideSafezone
+transponderActive=:insideSafezone+:TransponderMode>1 $
+
 
 // update old
 lastStoredPower=storedPower
+lastUnitFuelStored=unitFuelStored
 last=now
 

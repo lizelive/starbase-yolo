@@ -2,9 +2,9 @@ include "config"
 include "std/logic"
 include "std/math"
 
-
-logic_wait(not :Active)
-t=0
-while :Active do
-    :MineTime = time()/5
+MineTime=0
+logic_wait(not DoMine)
+startTime=time()
+while DoMine do
+    MineTime= (time()-startTime)/5
 end
