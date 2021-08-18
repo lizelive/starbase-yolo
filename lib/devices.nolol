@@ -1,0 +1,559 @@
+//#region AudioSignalDeviceMark1
+//Will start to play sound queue when set to 1 and stop when set to 0. Range: 0, 1
+define AudioSignalDeviceMark1_SoundOn=:SoundOn
+//Controls the comparison type: -1 : less 0 : equal 1 : greater Range: -1, 0, 1
+define AudioSignalDeviceMark1_TriggerRule=:TriggerRule
+//Value, which InputValue will be compared against. Range: any
+define AudioSignalDeviceMark1_TriggerValue=:TriggerValue
+//Value, which will be compared against TriggerValue . Range: any
+define AudioSignalDeviceMark1_InputValue=:InputValue
+// Range: 
+define AudioSignalDeviceMark1_SoundCategory=:SoundCategory
+//The sound that will be played. Range: 0 - 99
+define AudioSignalDeviceMark1_SoundType=:SoundType
+//The delay between each played sound. Range: 0 - 100
+define AudioSignalDeviceMark1_RetriggerRate=:RetriggerRate
+//Limits how often the sound is repeated. Sound is repeated indefinitely if set to 0. Range: 0 - 99
+define AudioSignalDeviceMark1_RetriggerAmount=:RetriggerAmount
+//0 - 99 Range: 
+define AudioSignalDeviceMark1_Priority=:Priority
+//0 - 200 Range: 
+define AudioSignalDeviceMark1_Radius=:Radius
+//#endregion
+
+//#region Battery
+//Batteries with a lower priority get used first Range: 
+define Battery_BatteryPriority=:BatteryPriority
+//Current charge level of the battery Range: 0 - 10 000
+define Battery_StoredBatteryPower=:StoredBatteryPower
+//Maximum charge level of the battery Range: 10 000
+define Battery_MaxBatteryPower=:MaxBatteryPower
+//#endregion
+
+//#region BoxThruster
+//Requested output of the thruster Range: 0 - 10 000
+define BoxThruster_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define BoxThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//#endregion
+
+//#region BoxThrusterBody
+//Requested output of the thruster Range: 0 - 10 000
+define BoxThrusterBody_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define BoxThrusterBody_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//#endregion
+
+//#region Buttons
+//The name of the field of which value the button modifies. Range: 
+define Buttons_ButtonState=:ButtonState
+//Controls the value when pressed Range: 
+define Buttons_ButtonOnStateValue=:ButtonOnStateValue
+//Controls the value when released Range: 
+define Buttons_ButtonOffStateValue=:ButtonOffStateValue
+//Controls the interaction type of the button Range: 0: Hold down and release 1: Basic Toggle (in-game button remains down while it is "on") 2: 4-state switch (in-game button returns to the unpressed position whether it is "on" or "off")
+define Buttons_ButtonStyle=:ButtonStyle
+//#endregion
+
+//#region CargoLockBeam
+//Dictates whether the beam is on or off. 0 = off, any other value = on. Range: 
+define CargoLockBeam_CargoBeamOnState=:CargoBeamOnState
+//The maximum distance from where the beam can lock onto objects. Measured in meters. Range: 0 - 1000
+define CargoLockBeam_CargoBeamSearchLength=:CargoBeamSearchLength
+//The current status of the beam, 0 = off or unlocked, 1 = touching object but unlocked, 2 = locked Range: 0 - 2
+define CargoLockBeam_CargoBeamStatus=:CargoBeamStatus
+//#endregion
+
+//#region YOLOLChip
+//Controls script execution. Negative values mean execution is paused, zero means script is being executed, and positive values mean execution will continue after the amount of line runs have passed that are equal to the value. Range: Numeric, any
+define YOLOLChip_ChipWait=:ChipWait
+//#endregion
+
+//#region CoolantRechargeRack
+//Upper limit for conversion rate for this recharge rack Range: 0 - 100
+define CoolantRechargeRack_CoolantRechargeRateLimit=:CoolantRechargeRateLimit
+//Current conversion rate for this recharge rack. Range: 0 - 100
+define CoolantRechargeRack_CoolantRechargeRate=:CoolantRechargeRate
+//#endregion
+
+//#region CoolingRack
+//Upper limit for conversion rate for this cooler Range: 0 - 100
+define CoolingRack_CoolerUnitRateLimit=:CoolerUnitRateLimit
+//Current conversion rate for this cooler. Conversion is being performed at 1 conversion * this percentage per second. Range: 0 - 100
+define CoolingRack_CoolerUnitRate=:CoolerUnitRate
+//#endregion
+
+//#region TurretCradle
+//Target pitch of the cradle Range: 0
+define TurretCradle_TurretPitch=:TurretPitch
+//Current rotation of the cradle Range: 0
+define TurretCradle_TurretCurrentPitch=:TurretCurrentPitch
+//High limit of the rotation Range: 180 / 160 on basic cradle
+define TurretCradle_MaxRotation=:MaxRotation
+//Low limit of the rotation Range: -180 / -20 on basic cradle
+define TurretCradle_MinRotation=:MinRotation
+//Target velocity with which the cradle rotates Range: 3
+define TurretCradle_TargetVelocity=:TargetVelocity
+//#endregion
+
+//#region FastTravelGateCoreCenter
+//Indicates the readiness of the warp gate core Range: 0 - 1
+define FastTravelGateCoreCenter_TravelCoreAssembled=:TravelCoreAssembled
+//#endregion
+
+//#region FuelChamber
+//The amount of fuel currently available in this chamber's fuel rod Range: 0 - 300000
+define FuelChamber_FuelChamberFuel=:FuelChamberFuel
+//Maximum amount of fuel that can be stored in this chamber's rod, zero if no rod Range: 0 - 300000
+define FuelChamber_FuelChamberMaxFuel=:FuelChamberMaxFuel
+//Upper limit for conversion rate for this fuel chamber Range: 0 - 100
+define FuelChamber_FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit
+//Current conversion rate for this fuel chamber. Conversion is being performed at 1 conversion * this percentage per second Range: 0 - 100
+define FuelChamber_FuelChamberUnitRate=:FuelChamberUnitRate
+//#endregion
+
+//#region FuelRod
+//The amount of fuel currently in this rod Range: 0 - 300000
+define FuelRod_StoredRawFuel=:StoredRawFuel
+//The maximum amount of fuel that can be stored in a fuel rod Range: 300000
+define FuelRod_MaxRawFuel=:MaxRawFuel
+//#endregion
+
+//#region GeneratorUnit
+//Upper limit for conversion rate for this generator block Range: 0 - 100
+define GeneratorUnit_GeneratorUnitRateLimit=:GeneratorUnitRateLimit
+//Current conversion rate for this generator block. Conversion is being performed at 1 conversion * this percentage per second. Range: 0 - 100
+define GeneratorUnit_GeneratorUnitRate=:GeneratorUnitRate
+//#endregion
+
+//#region Hinges
+//Input field for requested door state. 0 is closed, 1 is fully open. Range: [0,1]
+define Hinges_DoorOpenState=:DoorOpenState
+//Reports the current position of the door, on the same scale as DoorOpenState Range: [0,1]
+define Hinges_DoorCurrentState=:DoorCurrentState
+//The rotation/position the joint should be at when DoorOpenState is 1. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Hinges_EndAngle=:EndAngle
+//The rotation/position the joint should be at when DoorOpenState is 0. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Hinges_StartAngle=:StartAngle
+//The rotation/position the joint should be at when DoorOpenState is 1. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Hinges_EndPosition=:EndPosition
+//The rotation/position the joint should be at when DoorOpenState is 0. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Hinges_StartPosition=:StartPosition
+//The maximum velocity the joint will reach. Different joint devices have different velocity limits, and might not be able to reach the configured velocity. Range: 
+define Hinges_TargetVelocity=:TargetVelocity
+//#endregion
+
+//#region Sliders
+//Input field for requested door state. 0 is closed, 1 is fully open. Range: [0,1]
+define Sliders_DoorOpenState=:DoorOpenState
+//Reports the current position of the door, on the same scale as DoorOpenState Range: [0,1]
+define Sliders_DoorCurrentState=:DoorCurrentState
+//The rotation/position the joint should be at when DoorOpenState is 1. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Sliders_EndAngle=:EndAngle
+//The rotation/position the joint should be at when DoorOpenState is 0. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Sliders_StartAngle=:StartAngle
+
+//The rotation/position the joint should be at when DoorOpenState is 1. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Sliders_EndPosition=:EndPosition
+//The rotation/position the joint should be at when DoorOpenState is 0. Is measured in percents(%) relative to the maximum possible open state for prismatic joints, and degrees in hinge joints. Range: 
+define Sliders_StartPosition=:StartPosition
+
+//The maximum velocity the joint will reach. Different joint devices have different velocity limits, and might not be able to reach the configured velocity. Range: 
+define Sliders_TargetVelocity=:TargetVelocity
+//#endregion
+
+//#region InformationScreen
+//Input string which will be displayed on the screen Range: 364 mark string
+define InformationScreen_InfoScreenContent=:InfoScreenContent
+//#endregion
+
+//#region Lamps
+//Determines whether the light is on. 0 is off, everything else is on. Range: 0 - 1
+define Lamps_LampOn=:LampOn
+//#endregion
+
+//#region Levers
+//Lever's current state between LeverMinOutput and LeverMaxOutput Range: LeverMinOutput - LeverMaxOutput
+define Levers_LeverState=:LeverState
+//Unidirectional - Output in low end, Bidirectional - Output in left end Range: 
+define Levers_LeverMinOutput=:LeverMinOutput
+//Unidirectional - Output in high end, Bidirectional - Output in right end Range: 
+define Levers_LeverMaxOutput=:LeverMaxOutput
+//Output value when the lever is in the center Range: 
+define Levers_LeverCenterOutput=:LeverCenterOutput
+//How large is the dead zone in the center of an unidirectional lever Range: 
+define Levers_LeverCenterDeadZone=:LeverCenterDeadZone
+//How fast does (unidirectional lever reset to low end)(bidirectional lever reset to center) once released Range: 
+define Levers_LeverCenteringSpeed=:LeverCenteringSpeed
+//How fast does the lever move with binds Range: 
+define Levers_LeverBindsMoveSpeed=:LeverBindsMoveSpeed
+//#endregion
+
+//#region MainFlightComputer
+//For connecting an FCU to the MFC Range: -
+define MainFlightComputer_FcuMfcIO1=:FcuMfcIO1
+//- Range: 
+define MainFlightComputer_FcuMfcIO2=:FcuMfcIO2
+//50 fields for connecting thrusters to the MFC. These field names are set for the ships thrusters. Range: -
+define MainFlightComputer_ThrusterPowerLevel01=:ThrusterPowerLevel01
+define MainFlightComputer_ThrusterPowerLevel02=:ThrusterPowerLevel02
+define MainFlightComputer_ThrusterPowerLevel03=:ThrusterPowerLevel03
+define MainFlightComputer_ThrusterPowerLevel04=:ThrusterPowerLevel04
+define MainFlightComputer_ThrusterPowerLevel05=:ThrusterPowerLevel05
+define MainFlightComputer_ThrusterPowerLevel06=:ThrusterPowerLevel06
+define MainFlightComputer_ThrusterPowerLevel07=:ThrusterPowerLevel07
+define MainFlightComputer_ThrusterPowerLevel08=:ThrusterPowerLevel08
+define MainFlightComputer_ThrusterPowerLevel09=:ThrusterPowerLevel09
+define MainFlightComputer_ThrusterPowerLevel10=:ThrusterPowerLevel00
+define MainFlightComputer_ThrusterPowerLevel11=:ThrusterPowerLevel01
+define MainFlightComputer_ThrusterPowerLevel12=:ThrusterPowerLevel02
+define MainFlightComputer_ThrusterPowerLevel13=:ThrusterPowerLevel03
+define MainFlightComputer_ThrusterPowerLevel14=:ThrusterPowerLevel04
+define MainFlightComputer_ThrusterPowerLevel15=:ThrusterPowerLevel05
+define MainFlightComputer_ThrusterPowerLevel16=:ThrusterPowerLevel06
+define MainFlightComputer_ThrusterPowerLevel17=:ThrusterPowerLevel07
+define MainFlightComputer_ThrusterPowerLevel18=:ThrusterPowerLevel08
+define MainFlightComputer_ThrusterPowerLevel19=:ThrusterPowerLevel09
+define MainFlightComputer_ThrusterPowerLevel20=:ThrusterPowerLevel00
+define MainFlightComputer_ThrusterPowerLevel21=:ThrusterPowerLevel01
+define MainFlightComputer_ThrusterPowerLevel22=:ThrusterPowerLevel02
+define MainFlightComputer_ThrusterPowerLevel23=:ThrusterPowerLevel03
+define MainFlightComputer_ThrusterPowerLevel24=:ThrusterPowerLevel04
+define MainFlightComputer_ThrusterPowerLevel25=:ThrusterPowerLevel05
+define MainFlightComputer_ThrusterPowerLevel26=:ThrusterPowerLevel06
+define MainFlightComputer_ThrusterPowerLevel27=:ThrusterPowerLevel07
+define MainFlightComputer_ThrusterPowerLevel28=:ThrusterPowerLevel08
+define MainFlightComputer_ThrusterPowerLevel29=:ThrusterPowerLevel09
+define MainFlightComputer_ThrusterPowerLevel30=:ThrusterPowerLevel00
+define MainFlightComputer_ThrusterPowerLevel31=:ThrusterPowerLevel01
+define MainFlightComputer_ThrusterPowerLevel32=:ThrusterPowerLevel02
+define MainFlightComputer_ThrusterPowerLevel33=:ThrusterPowerLevel03
+define MainFlightComputer_ThrusterPowerLevel34=:ThrusterPowerLevel04
+define MainFlightComputer_ThrusterPowerLevel35=:ThrusterPowerLevel05
+define MainFlightComputer_ThrusterPowerLevel36=:ThrusterPowerLevel06
+define MainFlightComputer_ThrusterPowerLevel37=:ThrusterPowerLevel07
+define MainFlightComputer_ThrusterPowerLevel38=:ThrusterPowerLevel08
+define MainFlightComputer_ThrusterPowerLevel39=:ThrusterPowerLevel09
+define MainFlightComputer_ThrusterPowerLevel40=:ThrusterPowerLevel00
+define MainFlightComputer_ThrusterPowerLevel41=:ThrusterPowerLevel01
+define MainFlightComputer_ThrusterPowerLevel42=:ThrusterPowerLevel02
+define MainFlightComputer_ThrusterPowerLevel43=:ThrusterPowerLevel03
+define MainFlightComputer_ThrusterPowerLevel44=:ThrusterPowerLevel04
+define MainFlightComputer_ThrusterPowerLevel45=:ThrusterPowerLevel05
+define MainFlightComputer_ThrusterPowerLevel46=:ThrusterPowerLevel06
+define MainFlightComputer_ThrusterPowerLevel47=:ThrusterPowerLevel07
+define MainFlightComputer_ThrusterPowerLevel48=:ThrusterPowerLevel08
+define MainFlightComputer_ThrusterPowerLevel49=:ThrusterPowerLevel09
+define MainFlightComputer_ThrusterPowerLevel50=:ThrusterPowerLevel00
+//#endregion
+
+//#region ManeuverThruster
+//Requested output of the thruster Range: 0 - 10 000
+define ManeuverThruster_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define ManeuverThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//#endregion
+
+//#region MaterialPointScanner
+//The scanner turns off when this is set to 0 and on when set to anything else Range: 0 - 1
+define MaterialPointScanner_Active=:Active
+//The current material to provide information for. Starting at 0 Range: 0 -
+define MaterialPointScanner_Index=:Index
+//The number of diferent materials the object contains Range: 0 -
+define MaterialPointScanner_ScanResults=:ScanResults
+//The material of the current 'Index' i.e. "Ukonium" Range: String
+define MaterialPointScanner_Material=:Material
+//The Volume of the current 'Index' i.e. 272 Range: 0 -
+define MaterialPointScanner_Volume=:Volume
+//Must be set to 1 to initiate a scan, auto-resets to 0 once scan is complete Range: 0 - 1
+define MaterialPointScanner_Scan=:Scan
+//Resets the stored scan result Range: 0 - 1
+define MaterialPointScanner_Reset=:Reset
+//#endregion
+
+//#region YOLOLMemoryChip
+// Range: 
+define YOLOLMemoryChip_ChipField1=:ChipField1
+// Range: 
+define YOLOLMemoryChip_ChipField2=:ChipField2
+// Range: 
+define YOLOLMemoryChip_ChipField3=:ChipField3
+// Range: 
+define YOLOLMemoryChip_ChipField4=:ChipField4
+// Range: 
+define YOLOLMemoryChip_ChipField5=:ChipField5
+// Range: 
+define YOLOLMemoryChip_ChipField6=:ChipField6
+// Range: 
+define YOLOLMemoryChip_ChipField7=:ChipField7
+// Range: 
+define YOLOLMemoryChip_ChipField8=:ChipField8
+// Range: 
+define YOLOLMemoryChip_ChipField9=:ChipField9
+// Range: 
+define YOLOLMemoryChip_ChipField10=:ChipField10
+//#endregion
+
+//#region MemoryRelay
+//On / Off, left side Range: 0 / 1
+define MemoryRelay_IsMasterEnabled=:IsMasterEnabled
+//On / Off, right side Range: 0 / 1
+define MemoryRelay_IsEnabled=:IsEnabled
+//#endregion
+
+//#region MiningLaser
+//Mining laser turns off when this is set to 0 and on when set to anything else Range: 0 - 1
+define MiningLaser_MiningLaserOn=:MiningLaserOn
+//The length of the beam. Measured in meters. Range: 0 - 20
+define MiningLaser_MiningLaserBeamLength=:MiningLaserBeamLength
+//#endregion
+
+//#region ModularDeviceRack
+// Range: 
+define ModularDeviceRack_CurrentState=:CurrentState
+// Range: 
+define ModularDeviceRack_OnState=:OnState
+// Range: 
+define ModularDeviceRack_OffState=:OffState
+// Range: 
+define ModularDeviceRack_ButtonStyle=:ButtonStyle
+//#endregion
+
+//#region ModularOreCargoCrate
+//Crates with a lower priority get used first Range: 
+define ModularOreCargoCrate_Priority=:Priority
+//#endregion
+
+//#region NetworkRelay
+//On / Off (Input side) Range: 0 / 1
+define NetworkRelay_IsMasterEnabled=:IsMasterEnabled
+//On / Off (Output side) Range: 0 / 1
+define NetworkRelay_IsEnabled=:IsEnabled
+//#endregion
+
+//#region OreCollector
+//Ore collector turns off when this is set to 0 and on when set to anything else Range: 0 - 1
+define OreCollector_ToggleOn=:ToggleOn
+//Determines how fast the collector collects ore, and how much power it consumes Range: 0 - 6000
+define OreCollector_Power=:Power
+//#endregion
+
+//#region PipeSocketBoard
+//Upper limit for cooling rate for pipe socket board Range: 0 - 100
+define PipeSocketBoard_RadiatorCoolingRateLimit=:RadiatorCoolingRateLimit
+//Current cooling rate for this pipe socket board. Range: 0 - 100
+define PipeSocketBoard_RadiatorCoolingRate=:RadiatorCoolingRate
+//#endregion
+
+//#region PlasmaThruster
+//Requested output of the thruster Range: 0 - 10 000
+define PlasmaThruster_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define PlasmaThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//Active state of the thruster Range: 0 / 1
+define PlasmaThruster_isActive=:isActive
+//Current charge level of the thruster Range: 0 - 1
+define PlasmaThruster_chargeLevel=:chargeLevel
+//#endregion
+
+//#region NavigationReceivers
+//Found message Range: 0
+define NavigationReceivers_Message=:Message
+//Strength of the found signal, measured in meters Range: 0
+define NavigationReceivers_SignalStrength=:SignalStrength
+//An angle of 180 coresponds to an omnidirectional receiver. Range: 0-180
+define NavigationReceivers_ListenAngle=:ListenAngle
+//The message the receiver will exclusively listen to, 0 means listens to all Range: 0
+define NavigationReceivers_TargetMessage=:TargetMessage
+//The frequency the receiver will exclusively listen to, 0 means listens to all Range: 0
+define NavigationReceivers_TargetFrequency=:TargetFrequency
+//The frequency of the transmitter currently listened to, 0 if no signal found. Range: 0
+define NavigationReceivers_Frequency=:Frequency
+//Target pitch of the device Range: 0
+define NavigationReceivers_ReceiverPitch=:ReceiverPitch
+//Current pitch of the device Range: 0
+define NavigationReceivers_ReceiverCurrentPitch=:ReceiverCurrentPitch
+//Maximum limit for rotation Range: 180
+define NavigationReceivers_MaxRotation=:MaxRotation
+//Minimum limit for rotation Range: -180
+define NavigationReceivers_MinRotation=:MinRotation
+//Target velocity in which the device rotates Range: 0-3
+define NavigationReceivers_TargetVelocity=:TargetVelocity
+//#endregion
+
+//#region RadioTransmitters
+//Message being sent Range: 
+define RadioTransmitters_TransmitMessage=:TransmitMessage
+//Range where the message can be received Range: 1000000
+define RadioTransmitters_TransmitRange=:TransmitRange
+//The frequency channel the transmitter will send signals to. Range: 1
+define RadioTransmitters_Frequency=:Frequency
+//#endregion
+
+//#region RailMover
+//Target velocity of the rail mover in m/s Range: 
+define RailMover_speed=:speed
+//If we cross a rail trigger that is configured to emit values read from the mover, it reads from this field. Range: 
+define RailMover_RailMoverTriggerValue=:RailMoverTriggerValue
+//#endregion
+
+//#region RailRelay
+//On/Off Range: 0/1
+define RailRelay_IsEnabled=:IsEnabled
+//#endregion
+
+//#region RailTrigger
+//The output field the trigger writes to. Range: None
+define RailTrigger_RailTriggerOutput=:RailTriggerOutput
+//Value written to RailTriggerOutput when a rail mover passes over. Range: 
+define RailTrigger_RailTriggerValue=:RailTriggerValue
+//If non-zero, will read the rail mover's RailMoverTriggerValue field and emit that instead of the trigger's RailTriggerValue . Range: 
+define RailTrigger_RailTriggerReadMover=:RailTriggerReadMover
+//#endregion
+
+//#region Rangefinder
+//Whether the range finder should try to be on. 0 is off, everything else is on. Range: 
+define Rangefinder_RangeFinderOnState=:RangeFinderOnState
+//The maximum distance to check for hits, up to the device's maximum. Measured in meters. Range: 0 - 1000
+define Rangefinder_RangeFinderSearchLength=:RangeFinderSearchLength
+//The output field which reports the distance the laser goes. Measured in meters. Range: 
+define Rangefinder_RangeFinderDistance=:RangeFinderDistance
+//#endregion
+
+//#region ResourceBridge
+//Dictates whether the resource bridge is on or off. 0 = off, any other value = on. Range: 0 - 1
+define ResourceBridge_State=:State
+//Dictates whether the resource bridge can accept resources. Range: 0 - 1
+define ResourceBridge_FlowIn=:FlowIn
+//Dictates whether the resource bridge can send resources. Range: 0 - 1
+define ResourceBridge_FlowOut=:FlowOut
+//#endregion
+
+//#region ShipDiagnosticScanner
+//The scanner turns off when this is set to 0 and on when set to anything else Range: 0 - 1
+define ShipDiagnosticScanner_Active=:Active
+//The current warp class of the ship Range: 0 - Infinity
+define ShipDiagnosticScanner_WarpClass=:WarpClass
+//The number of durability errors the ship currently has Range: X
+define ShipDiagnosticScanner_DurabilityErrors=:DurabilityErrors
+//#endregion
+
+//#region ShipTransponder
+//On/off Range: 0 - 1
+define ShipTransponder_transponderActive=:transponderActive
+//Owner of transponder/ship. Filled at creation Range: string
+define ShipTransponder_transponderOwner=:transponderOwner
+//Name of ship that transponder is tied to. Filled at creation Range: string
+define ShipTransponder_transponderShipName=:transponderShipName
+//Is the transponder inside a safezone? Range: 0 - 1
+define ShipTransponder_insideSafezone=:insideSafezone
+//Can this ship currently be damaged by players? Range: 0 - 1
+define ShipTransponder_playerDamage=:playerDamage
+//Can this ship currently be damaged by other ships? Range: 0 - 1
+define ShipTransponder_shipDamage=:shipDamage
+//Can this ship currently be damaged by collisions? Range: 0 - 1
+define ShipTransponder_collisionDamage=:collisionDamage
+//Can a new station be constructed in the current area? Range: 0 - 1
+define ShipTransponder_stationsAllowed=:stationsAllowed
+//#endregion
+
+//#region SocketBoard
+//Upper limit for conversion rate for this socket Range: 0 - 100
+define SocketBoard_SocketUnitRateLimit=:SocketUnitRateLimit
+//Current conversion rate for this socket. Conversion is being performed at 1 conversion * this percentage per second. Range: 0 - 100
+define SocketBoard_SocketUnitRate=:SocketUnitRate
+//#endregion
+
+//#region SolarPanelLightSensor
+//Whether the sensor is currently facing a viable source of light Range: 0 - 1
+define SolarPanelLightSensor_LightDetected=:LightDetected
+//Vertical offset of the panel to the source of light, in degrees Range: -90 - 90
+define SolarPanelLightSensor_LightOffsetVertical=:LightOffsetVertical
+//Horizontal offset of the panel to the source of light, in degrees Range: -90 - 90
+define SolarPanelLightSensor_LightOffsetHorizontal=:LightOffsetHorizontal
+//#endregion
+
+//#region SolarPowerConverter
+//Usage priority for the device Range: 0 - 1
+define SolarPowerConverter_ConverterPriority=:ConverterPriority
+//Power generated after performing the conversion process Range: Infinity
+define SolarPowerConverter_ConverterOutput=:ConverterOutput
+//Total surface area of attached solar panels Range: Number expressed in square meters
+define SolarPowerConverter_ArrayAreaTotal=:ArrayAreaTotal
+//#endregion
+
+//#region TorpedoLauncher
+//Identifier of tube Range: X
+define TorpedoLauncher_tube=:tube
+//Should the launcher's torpedo be locked in place? Range: 0 - 1
+define TorpedoLauncher_LauncherLock=:LauncherLock
+//Which torpedo tube is currently selected and thus is ready to fire Range: X
+define TorpedoLauncher_selectedTube=:selectedTube
+//Status of the tube's magazine Range: "Empty" / "Locked"
+define TorpedoLauncher_tubeStatus=:tubeStatus
+//Launch the currently selected torpedo Range: 0 - 1
+define TorpedoLauncher_launchTorpedo=:launchTorpedo
+//#endregion
+
+//#region TractorBeam
+//Beam on/off Range: 1 or 0
+define TractorBeam_tractorBeamOnState=:tractorBeamOnState
+//When set to 1, brings the object grabbed by the beam to a stop, then turns off the beam Range: 1 or 0
+define TractorBeam_tractorBeamSoftRelease=:tractorBeamSoftRelease
+//When set to 1, tractor beam tries to snap held object to nearby objects Range: 1 or 0
+define TractorBeam_tractorBeamSnapToObjects=:tractorBeamSnapToObjects
+//Length (meters) of the beam when the beam is not attached to anything. Max range of the beam. Range: -
+define TractorBeam_tractorBeamSearchLength=:tractorBeamSearchLength
+//Maximum amount of force (Newtons) the beam will try to apply to grabbed object. Range: -
+define TractorBeam_tractorBeamForce=:tractorBeamForce
+//Maximum amount of torque (Newtons) the beam will try to apply to grabbed object. Range: -
+define TractorBeam_tractorBeamTorque=:tractorBeamTorque
+//The distance (meters) the beam tries to move a held object to. Resets on grab, but does not message network / other devices. Range: -
+define TractorBeam_tractorBeamPosition=:tractorBeamPosition
+//The yaw (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
+define TractorBeam_tractorBeamYaw=:tractorBeamYaw
+//The pitch (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
+define TractorBeam_tractorBeamPitch=:tractorBeamPitch
+//The roll (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
+define TractorBeam_tractorBeamRoll=:tractorBeamRoll
+//Indicates whether an object is grabbed by the beam. Range: 1 or 0
+define TractorBeam_tractorBeamObjectInBeam=:tractorBeamObjectInBeam
+//Indicates the force (Newtons) currently being applied to the grabbed object. Can be used to detect when the grabbed object has been set to the target position. Range: -
+define TractorBeam_tractorBeamForceApplied=:tractorBeamForceApplied
+//Indicates the torque (Newtons) currently being applied to the grabbed object. Can be used to detect when the grabbed object has been set to the target rotation. Range: -
+define TractorBeam_tractorBeamTorqueApplied=:tractorBeamTorqueApplied
+//#endregion
+
+//#region TriangleThruster
+//Requested output of the thruster Range: 0 - 10 000
+define TriangleThruster_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define TriangleThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//#endregion
+
+//#region TriangleThrusterBody
+//Requested output of the thruster Range: 0 - 10 000
+define TriangleThrusterBody_ThrusterState=:ThrusterState
+//Current output of the thruster Range: 0 - 10 000
+define TriangleThrusterBody_ThrusterCurrentThrust=:ThrusterCurrentThrust
+//#endregion
+
+//#region Turntable
+//Target rotation of the turntable Range: 0
+define Turntable_TurretRotation=:TurretRotation
+//Current rotation of the turntable Range: 0
+define Turntable_TurretCurrentRotation=:TurretCurrentRotation
+//High limit of the rotation Range: 180
+define Turntable_MaxRotation=:MaxRotation
+//Low limit of the rotation Range: -180
+define Turntable_MinRotation=:MinRotation
+//Target velocity in which the turntable rotates Range: 3
+define Turntable_TargetVelocity=:TargetVelocity
+//#endregion
+
+//#region UtilityToolCapacitor
+//How much power is stored in the utility ammo Range: 0 - 4000
+define UtilityToolCapacitor_StoredLocalPower=:StoredLocalPower
+//Maximum amount of power ammo that can be stored Range: 4000
+define UtilityToolCapacitor_MaxLocalPower=:MaxLocalPower
+//#endregion

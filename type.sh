@@ -19,5 +19,5 @@ clip=`xclip -o -selection clipboard`
 IFS=$'\n'
 for line in $clip
 do
-echo $line
+type $line
 done

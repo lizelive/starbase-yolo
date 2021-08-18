@@ -1,0 +1,19 @@
+define true=1
+define false=0
+
+macro assert(cond, msg) block
+	if cond then
+		Error=Time+":"+msg
+	end
+end
+
+macro hcf() block
+	while true do
+	end
+end
+
+macro asserthcf(cond, msg) block
+	while cond do
+		Error=Time+":"+msg
+	end
+end

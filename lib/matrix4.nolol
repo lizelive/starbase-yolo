@@ -1,0 +1,82 @@
+macro Rule(a, b) block
+	a=b
+end
+
+macro matrix4_det(det, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+	s0=i00*i11-i10*i01
+	s1=i00*i12-i10*i02
+	s2=i00*i13-i10*i03
+	s3=i01*i12-i11*i02
+	s4=i01*i13-i11*i03
+	s5=i02*i13-i12*i03
+	
+	c5=i22*i33-i32*i23
+	c4=i21*i33-i31*i23
+	c3=i21*i32-i31*i22
+	c2=i20*i33-i30*i23
+	c1=i20*i32-i30*i22
+	c0=i20*i31-i30*i21
+	
+	det=s0*c5-s1*c4+s2*c3+s3*c2-s4*c1+s5*c0
+end
+
+macro matrix4_copy(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+	m00=i00
+	m01=i01
+	m02=i02
+	m03=i03
+	m10=i10
+	m11=i11
+	m12=i12
+	m13=i13
+	m20=i20
+	m21=i21
+	m22=i22
+	m23=i23
+	m30=i30
+	m31=i31
+	m32=i32
+	m33=i33
+end
+
+macro matrix4_inverse(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+	s0=i00*i11-i10*i01
+	s1=i00*i12-i10*i02
+	s2=i00*i13-i10*i03
+	s3=i01*i12-i11*i02
+	s4=i01*i13-i11*i03
+	s5=i02*i13-i12*i03
+	
+	c5=i22*i33-i32*i23
+	c4=i21*i33-i31*i23
+	c3=i21*i32-i31*i22
+	c2=i20*i33-i30*i23
+	c1=i20*i32-i30*i22
+	c0=i20*i31-i30*i21
+	
+	det=s0*c5-s1*c4+s2*c3+s3*c2-s4*c1+s5*c0
+	
+	
+	m00=(i11*c5-i12*c4+i13*c3)/det
+	m01=(-i01*c5+i02*c4-i03*c3)/det
+	m02=(i31*s5-i32*s4+i33*s3)/det
+	m03=(-i21*s5+i22*s4-i23*s3)/det
+	m10=(-i10*c5+i12*c2-i13*c1)/det
+	m11=(i00*c5-i02*c2+i03*c1)/det
+	m12=(-i30*s5+i32*s2-i33*s1)/det
+	m13=(i20*s5-i22*s2+i23*s1)/det
+	m20=(i10*c4-i11*c2+i13*c0)/det
+	m21=(-i00*c4+i01*c2-i03*c0)/det
+	m22=(i30*s4-i31*s2+i33*s0)/det
+	m23=(-i20*s4+i21*s2-i23*s0)/det
+	m30=(-i10*c3+i11*c1-i12*c0)/det
+	m31=(i00*c3-i01*c1+i02*c0)/det
+	m32=(-i30*s3+i31*s1-i32*s0)/det
+	m33=(i20*s3-i21*s1+i22*s0)/det
+end
+
+//matrix4_det(det, m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44)
+matrix4_inverse(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
+//matrix4_copy(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
+
+macro dist(x)

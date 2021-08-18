@@ -3,15 +3,14 @@
 
 // if you want to know how much power you are using
 include "std/math"
-define NumBats=10
-define NumGenerators=3
+include "../config"
 
 
 //constant
 define MaxSocketPower=10000
 
-now=time()
-dTime=(now-last)/5
+now=Time
+dTime=now-last
 
 storedPower=0
 unitStoredPower=0
@@ -42,8 +41,8 @@ else
 	genUnitPower=1-unitStoredPower
 	
 end
-msg+=genUnitPower+" "+powerGenerated+"e/s"+
-:FuelChamberUnitRateLimit=100*genUnitPower $
+msg+=genUnitPower+" "+powerGenerated+"e/s r:"+fuelLeftS+"s"
+FuelChamberUnitRateLimit=100*genUnitPower $
 
 
 percentageStoredPower=1000*unitStoredPower/10

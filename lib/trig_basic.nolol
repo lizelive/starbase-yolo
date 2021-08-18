@@ -1,0 +1,69 @@
+include "std/math"
+include "std/logic"
+
+define rad_to_deg=180/math_pi
+define math_half_rot=180
+define math_full_rot=360
+define math_tau=2*math_pi
+define math_quater_rot=90
+define deg_to_rad=math_pi/180
+
+//angle betwen -180 and 180
+macro angle_mod(x) expr
+	math_mod(math_mod(x,math_full_rot)+(math_full_rot+math_half_rot),math_full_rot)-math_half_rot
+end
+
+// acurate to within 2.123 degrees
+macro math_acos(out, x) block
+	out=(-356.719+x*(222.021+90*x))/(-3.964+x*x)
+end
+
+// acurate to within 2.123 degrees
+macro math_asin(out, x) block
+	out=-244.343*x/(-4.3+x*x)
+end
+
+// economized rational approximation
+// acurate to within 0.109 degrees
+macro math_atan(out, y) block
+	//out = 0.9724*x−0.1919*x^3
+	sign=math_sign(y)
+	
+	didFlip=y<1 and y>-1
+	flip=1-2*didFlip
+	if didFlip then
+		y=1/y
+	end
+	out=90*didFlip*sign+flip*215.814*y/(3.8+y*y)
+end
+
+
+macro math_tan(out, x) block
+	o=math_mod(math_mod(x,math_half_rot)+math_half_rot+math_quater_rot,math_half_rot)-math_quater_rot
+	out=-140.706*o/(-8228.419+o*o)
+end
+
+// Bhaskara I method, acurate within 0.002
+macro math_sin(out, x) block
+	o=angle_mod(x)
+	s=math_sign(o)
+	o=math_abs(o)
+	t=180-o
+	out=s*4*o*t/(40500-o*t)
+end
+
+// acurate within 0.002
+macro math_cos(out, x) block
+	math_sin(out,x+math_quater_rot)	
+end
+
+
+// really need to optimize this.
+macro math_atan2(out, y, x) block
+	sgny=math_sign(y)
+	atanyx=0
+	t=0 // need this becuse compiler shinanigans
+	t=y/x
+	math_atan(atanyx,t)	
+	$ out=atanyx+(1-math_sign(x))/2*(1+sgny-sgny*sgny)*180
+end
