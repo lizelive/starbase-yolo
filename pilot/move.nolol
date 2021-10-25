@@ -16,15 +16,16 @@ define ORotationalRoll=:OutRotationalRoll
 
 
 define drag=0.95
-define auth = 0.4
+define auth=0.4
 
-forwardBack=IForwardBack
-
-fVel =  fVel*drag + forwardBack*auth
-forwardBack = fVel - forwardBack
-OForward=forwardBack
-OBackwards=-forwardBack
-
+while 1 do
+	forwardBack=IForwardBack
+	aproxVel*=drag
+	out=forwardBack-aproxVel
+	aproxVel+=auth*out
+	OForward=o
+	OBackwards=-o
+end
 
 
 
