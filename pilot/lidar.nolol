@@ -1,0 +1,21 @@
+define LaserDist=:LD
+define LaserTime=:LT
+define LaserX=:LX
+define LaserY=:LY
+
+
+define Dist=:RF1
+
+// the cords of this laser
+define X=32
+define Y=12
+
+while 1 do
+t = :t
+if LaserTime>t+1/5 or LaserDist>Dist then
+	LaserDist=Dist
+	LaserTime=t
+	LaserX=X
+	LaserY=Y
+end
+end

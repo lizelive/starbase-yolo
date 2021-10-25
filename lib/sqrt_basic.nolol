@@ -1,0 +1,8 @@
+macro sqrt(x) expr
+	(0.125+x*(3.204+442*x/125))/(1.021+x*(4.844+x))
+end
+
+
+macro inv_sqrt(o, y, x) block
+	o=x*(0.4+(1.7+0.4*x)*x)/(0.04+x*(1.1+1.2*x))
+end

@@ -1,0 +1,38 @@
+if :TBSearch == 1 then
+:TP=3.75
+:TR=0
+end
+if :TBTA ==0 then
+
+else
+:TP=3.75
+:TR=0 
+end
+
+
+IF :TBSearch == 1 then goto2 end :TP=3.75 :TR=0 goto1
+IF :TBTA ==0 then goto3 end :TP=3.75 :TR=0 goto1
+R=0 ST=.5
+:TR=R :TP=3.75-R
+If :TBTA !=0 then goto1 end goto6-5*(1-:TBSearch)
+IF :TR_C >= R or TP_C <= 3.75-R then goto 7 end goto5-4*(1-:TBSearch)
+:TR=-R :TP=3.75-R
+If :TBTA !=0 then goto1 end goto9-8*(1-:TBSearch)
+IF :TR_C <= R then goto 10 end goto8-7*(1-:TBSearch)
+:TR=-R :TP=3.75+R
+If :TBTA !=0 then goto1 end goto9-8*(1-:TBSearch)
+IF :TP_C >= 3.75+R then goto 13 end goto11-10*(1-:TBSearch)
+:TR=R :TP=3.75+R
+If :     !=0 then goto1 end goto9-8*(1-:TBSearch)
+IF :TR_C >= 3.75+R then goto 13 end goto11-10*(1-:TBSearch)
+
+
+
+
+
+
+
+
+
+
+IF :TBSearch == 0 then goto1 end R+=ST goto4
