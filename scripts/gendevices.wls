@@ -40,8 +40,8 @@ getCodeFor[url_]:=Block[{data,tables,deviceName,code,cache},
                     }
                     ],
                 {row,table}]],
-            {table,tables}]
-    Print[url -> Length[tables]];
+            {table,tables}];
+    Print[url -> code];
     code
 ]
 
