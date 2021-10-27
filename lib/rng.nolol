@@ -1,0 +1,28 @@
+include "std/math"
+include "std/logic"
+
+macro oddq(x) expr
+	math_mod(x,2)
+end
+
+macro collatz_step(x) expr
+	logic_ternary(oddq(x),3*x+1,x/2)
+end
+
+// derived from MMIX by Donald Knuth
+define multiplier = 6364136223846793.005
+define increment = 1442695040888963.407
+// modulus is 2^64
+macro lcg(x) expr
+ multiplier * x  * 100 + increment
+end
+
+
+seed = 1
+macro rng() expr
+(seed = lcg(seed))
+end
+
+
+x = 1
+x = lcg(x)

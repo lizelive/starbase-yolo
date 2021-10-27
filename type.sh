@@ -13,6 +13,10 @@ type() {
     xdotool keydown Down
     sleep frame
     xdotool keyup Down
+    sleep frame
+    xdotool keydown Down
+    sleep frame
+    xdotool keyup Down
 }
 
 clip=`xclip -o -selection clipboard`

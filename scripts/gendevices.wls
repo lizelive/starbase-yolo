@@ -24,23 +24,24 @@ urls=Select[urls,Not@*StringContainsQ["Guide"]];
 urls=Select[urls,Not@*AnyTrue[StringContainsQ[":"]]@*Lookup["Path"]@*URLParse];
 
 Print["Num Urls", Length[urls]]
-getCodeFor[url_]:=Block[{data,tables,deviceName,code},
-    data=Import[url,"Data"];
+getCodeFor[url_]:=Block[{data,tables,deviceName,code,cache},
+    cache = LocalCache[URL[url]];
+    data=Import[cache,"Data"];
     deviceName=ToPascalCase@Last[URLParse[url]["Path"]];
-    tables=Cases[data,{{"YOLOL field",_,_},x__}:>{x},Infinity];
-    code=If[Length[tables]==1,
-            Table[
+    tables=Cases[data,{{"YOLOL field",__},x__}:>{x},Infinity];
+    code=Table[
             region[deviceName,
-            Table[Block[{name, description, range,fullName},
-                    {name, description, range}=PadRight[StringTrim@*ToString/@Flatten[{row}],3,""];
+            Table[
+                Block[{name, description, range,fullName},
+                    {name, description, range}=PadRight[StringTrim@*ToString/@Flatten[{row}],3,""]~Take~3;
                     {
-                    comment[description<>" Range: "<>range],
+                    comment[If[range!="", description<>" Range: "<>range, description]],
                     define[deviceName<>"_"<>name,":"<>name]
                     }
                     ],
                 {row,table}]],
-            {table,tables}],{}];
-    Print[url -> code];
+            {table,tables}]
+    Print[url -> Length[tables]];
     code
 ]
 

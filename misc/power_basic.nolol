@@ -3,11 +3,16 @@
 
 // if you want to know how much power you are using
 include "std/math"
+
+define NumBats = 36
+define NumSockets = 4
+
 include "../config"
 
 
 //constant
 define MaxSocketPower=10000
+
 
 now=Time
 dTime=now-last
@@ -22,7 +27,7 @@ batteryRate=totalNetPower/dTime
 
 fuelRate=fuelNet/dTime
 
-powerGenerated=0; powerGenerated=(MaxSocketPower/100)*:SocketUnitRate $
+powerGenerated=0; powerGenerated=NumSockets*(MaxSocketPower/100)*:SocketUnitRate $
 generatorMode=0; generatorMode=:GeneratorMode $
 
 // what percentage fuel i have	
@@ -45,6 +50,10 @@ msg+=genUnitPower+" "+powerGenerated+"e/s r:"+fuelLeftS+"s"
 FuelChamberUnitRateLimit=100*genUnitPower $
 
 
+if fuelLeftS < 100 then
+:FcuGeneralMultiplier = 0
+end
+
 percentageStoredPower=1000*unitStoredPower/10
 msg+="\nBat: "+percentageStoredPower+"% "
 if math_abs(batteryRate)>0.1 then
@@ -60,11 +69,6 @@ if math_abs(batteryRate)>0.1 then
 end
 
 :PowerInfo=msg $
-
-
-
-
-
 
 // handle transponder
 inSafeZone=:insideSafezone

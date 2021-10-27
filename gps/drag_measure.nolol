@@ -1,0 +1,33 @@
+include "sps"
+include "../config"
+include "../lib/devices"
+include "../lib/vector"
+define steps_per_speed=20
+
+
+define NewLine="\n"
+logs=""
+
+throttle=0
+sps_quad_init(SPS1_Receiver1_TargetMessage,SPS1_Receiver2_TargetMessage,SPS1_Receiver3_TargetMessage,SPS1_Receiver4_TargetMessage)
+while throttle<=100 do
+	i=0
+	:FcuForward = throttle
+    
+    while ++i<steps_per_speed do
+		:Log=throttle+","+i+NewLine+logs
+        // snapshot
+        ot=t
+		ox=x
+		oy=y
+		oz=z
+        $ t= t+1
+		sps_quad(x,y,z,SPS1_Receiver1_SignalStrength,SPS1_Receiver2_SignalStrength,SPS1_Receiver3_SignalStrength,SPS1_Receiver4_SignalStrength)		
+		
+        vector_dist(vel, x, y, z, ox, oy, oz)
+		vel/=t-ot
+	end
+    logs += throttle+","+vel+NewLine
+    :Log=logs
+    throttle += 10
+end

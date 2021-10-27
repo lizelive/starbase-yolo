@@ -4,6 +4,12 @@ macro vector_sub(xo, yo, zo, xa, ya, za, xb, yb, zb) block
 	zo=za-zb
 end
 
+
+macro vector_dist(o, xa, ya, za, xb, yb, zb) block
+	vector_sub(tx, ty, tz, xa, ya, za, xb, yb, zb)
+	vector_norm(o, tx, ty, tz)
+end
+
 macro vector_norm2(o, x, y, z) block
 	o=x*x+y*y+z*z
 end
