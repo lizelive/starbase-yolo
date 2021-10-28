@@ -3,7 +3,7 @@ include "../lib/devices"
 include "std/math"
 
 while 1 do
-sps_mono(t,x,y,z,NavigationReceivers_TargetMessage,NavigationReceivers_SignalStrength)
+sps_mono(x,y,z,NavigationReceivers_TargetMessage,NavigationReceivers_SignalStrength)
 x = (ox + x)/2
 y = (oy + y)/2
 z = (oz + z)/2

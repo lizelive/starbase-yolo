@@ -30,67 +30,34 @@ define Battery_StoredBatteryPower=:StoredBatteryPower
 define Battery_MaxBatteryPower=:MaxBatteryPower
 //#endregion
 
-//#region BoxThruster
-//Requested output of the thruster Range: 0 - 10 000
-define BoxThruster_ThrusterState=:ThrusterState
-//Current output of the thruster Range: 0 - 10 000
-define BoxThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
-//#endregion
-
-//#region BoxThrusterBody
-//Requested output of the thruster Range: 0 - 10 000
-define BoxThrusterBody_ThrusterState=:ThrusterState
-//Current output of the thruster Range: 0 - 10 000
-define BoxThrusterBody_ThrusterCurrentThrust=:ThrusterCurrentThrust
-//#endregion
 
 //#region Buttons
 //The name of the field of which value the button modifies. Range: ButtonOnStateValue / ButtonOffStateValue
-define Buttons_ButtonState=:ButtonState
+define Buttons_State=:ButtonState
 //Controls the value when pressed
-define Buttons_ButtonOnStateValue=:ButtonOnStateValue
+define Buttons_OnStateValue=:ButtonOnStateValue
 //Controls the value when released
-define Buttons_ButtonOffStateValue=:ButtonOffStateValue
+define Buttons_OffStateValue=:ButtonOffStateValue
 //Controls the interaction type of the button Range: 0: Hold down and release 1: Basic Toggle (in-game button remains down while it is "on") 2: 4-state switch (in-game button returns to the unpressed position whether it is "on" or "off")
-define Buttons_ButtonStyle=:ButtonStyle
-//#endregion
-//#region Buttons
-//The name of the field of which value the button modifies. Range: 0/1
-define Buttons_ButtonState=:ButtonState
-//Controls the interaction type of the button Range: 0: Hold down and release 1: Basic Toggle (in-game button remains down while it is "on") 2: 4-state switch (in-game button returns to the unpressed position whether it is "on" or "off")
-define Buttons_ButtonStyle=:ButtonStyle
+define Buttons_Style=:ButtonStyle
 //Sets the color of the button. Range: 0 = Red, 1 = Orange, 2 = Green, 3 = Blue, Anything else = Red
-define Buttons_ButtonColor=:ButtonColor
+define Buttons_Color=:ButtonColor
 //When enabled the button will light up periodically. Range: 0 = No blinking, 1 = Blinking
-define Buttons_ButtonEnableBlink=:ButtonEnableBlink
-//#endregion
-//#region Buttons
-//The name of the field of which value the button modifies. Range: ButtonOnStateValue / ButtonOffStateValue
-define Buttons_ButtonState=:ButtonState
-//Controls the value when pressed
-define Buttons_ButtonOnStateValue=:ButtonOnStateValue
-//Controls the value when released
-define Buttons_ButtonOffStateValue=:ButtonOffStateValue
-//Controls the interaction type of the button Range: 0: Hold down and release 1: Basic Toggle (in-game button remains down while it is "on") 2: 4-state switch (in-game button returns to the unpressed position whether it is "on" or "off")
-define Buttons_ButtonStyle=:ButtonStyle
-//Sets the color of the button. Range: 0 = Red, 1 = Orange, 2 = Green, 3 = Blue, Anything else = Red
-define Buttons_ButtonColor=:ButtonColor
-//When enabled the button will light up periodically. Range: 0 = No blinking, 1 = Blinking
-define Buttons_ButtonEnableBlink=:ButtonEnableBlink
+define Buttons_EnableBlink=:ButtonEnableBlink
 //#endregion
 
 //#region CargoLockBeam
 //Dictates whether the beam is on or off. 0 = off, any other value = on.
-define CargoLockBeam_CargoBeamOnState=:CargoBeamOnState
+define CargoLockBeam_OnState=:CargoBeamOnState
 //The maximum distance from where the beam can lock onto objects. Measured in meters. Range: 0 - 1000
-define CargoLockBeam_CargoBeamSearchLength=:CargoBeamSearchLength
+define CargoLockBeam_SearchLength=:CargoBeamSearchLength
 //The current status of the beam, 0 = off or unlocked, 1 = touching object but unlocked, 2 = locked Range: 0 - 2
-define CargoLockBeam_CargoBeamStatus=:CargoBeamStatus
+define CargoLockBeam_Status=:CargoBeamStatus
 //#endregion
 
 //#region YOLOLChip
 //Controls script execution. Negative values mean execution is paused, zero means script is being executed, and positive values mean execution will continue after the amount of line runs have passed that are equal to the value. Range: Numeric, any
-define YOLOLChip_ChipWait=:ChipWait
+define YOLOLChip_Wait=:ChipWait
 //#endregion
 
 //#region CoolantRechargeRack
@@ -127,42 +94,42 @@ define FastTravelGateCoreCenter_TravelCoreAssembled=:TravelCoreAssembled
 
 //#region FlightControlUnit
 //For connecting the Main flight computer Range: All
-define FlightControlUnit_FcuMfcIO=:FcuMfcIO
+define FlightControlUnit_MfcIO=:FcuMfcIO
 //Scales the accepted input range Range: 100
-define FlightControlUnit_FcuInputRange=:FcuInputRange
+define FlightControlUnit_InputRange=:FcuInputRange
 //A "soft power switch", scales all output Range: 100
-define FlightControlUnit_FcuGeneralMultiplier=:FcuGeneralMultiplier
+define FlightControlUnit_GeneralMultiplier=:FcuGeneralMultiplier
 //Moves the ship straight forward or combines FcuFwdBwd rotations with the forward movement Range: 0 to 100
-define FlightControlUnit_FcuForward=:FcuForward
+define FlightControlUnit_Forward=:FcuForward
 //Moves the ship straight backward or combines FcuFwdBwd rotations with the backward movement Range: 0 to 100
-define FlightControlUnit_FcuBackward=:FcuBackward
+define FlightControlUnit_Backward=:FcuBackward
 //In-place pitch rotation Range: -100 to 100
-define FlightControlUnit_FcuRotationalPitch=:FcuRotationalPitch
+define FlightControlUnit_RotationalPitch=:FcuRotationalPitch
 //In-place yaw rotation Range: -100 to 100
-define FlightControlUnit_FcuRotationalYaw=:FcuRotationalYaw
+define FlightControlUnit_RotationalYaw=:FcuRotationalYaw
 //In-place roll rotation Range: -100 to 100
-define FlightControlUnit_FcuRotationalRoll=:FcuRotationalRoll
+define FlightControlUnit_RotationalRoll=:FcuRotationalRoll
 //Moves the ship straight up or down Range: -100 to 100
-define FlightControlUnit_FcuUpDown=:FcuUpDown
+define FlightControlUnit_UpDown=:FcuUpDown
 //Moves the ship straight right or left Range: -100 to 100
-define FlightControlUnit_FcuRightLeft=:FcuRightLeft
+define FlightControlUnit_RightLeft=:FcuRightLeft
 //Rotation combined to forward/backward movement Range: -100 to 100
-define FlightControlUnit_FcuFwdBwdPitch=:FcuFwdBwdPitch
+define FlightControlUnit_FwdBwdPitch=:FcuFwdBwdPitch
 //Rotation combined to forward/backward movement Range: -100 to 100
-define FlightControlUnit_FcuFwdBwdYaw=:FcuFwdBwdYaw
+define FlightControlUnit_FwdBwdYaw=:FcuFwdBwdYaw
 //Rotation combined to forward/backward movement Range: -100 to 100
-define FlightControlUnit_FcuFwdBwdRoll=:FcuFwdBwdRoll
+define FlightControlUnit_FwdBwdRoll=:FcuFwdBwdRoll
 //#endregion
 
 //#region FuelChamber
 //The amount of fuel currently available in this chamber's fuel rod Range: 0 - 300000
-define FuelChamber_FuelChamberFuel=:FuelChamberFuel
+define FuelChamber_Fuel=:FuelChamberFuel
 //Maximum amount of fuel that can be stored in this chamber's rod, zero if no rod Range: 0 - 300000
-define FuelChamber_FuelChamberMaxFuel=:FuelChamberMaxFuel
+define FuelChamber_MaxFuel=:FuelChamberMaxFuel
 //Upper limit for conversion rate for this fuel chamber Range: 0 - 100
-define FuelChamber_FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit
+define FuelChamber_UnitRateLimit=:FuelChamberUnitRateLimit
 //Current conversion rate for this fuel chamber. Conversion is being performed at 1 conversion * this percentage per second Range: 0 - 100
-define FuelChamber_FuelChamberUnitRate=:FuelChamberUnitRate
+define FuelChamber_UnitRate=:FuelChamberUnitRate
 //#endregion
 
 //#region FuelRod
@@ -174,9 +141,9 @@ define FuelRod_MaxRawFuel=:MaxRawFuel
 
 //#region GeneratorUnit
 //Upper limit for conversion rate for this generator block Range: 0 - 100
-define GeneratorUnit_GeneratorUnitRateLimit=:GeneratorUnitRateLimit
+define GeneratorUnit_RateLimit=:GeneratorUnitRateLimit
 //Current conversion rate for this generator block. Conversion is being performed at 1 conversion * this percentage per second. Range: 0 - 100
-define GeneratorUnit_GeneratorUnitRate=:GeneratorUnitRate
+define GeneratorUnit_UnitRate=:GeneratorUnitRate
 //#endregion
 
 //#region Hinges
@@ -356,9 +323,9 @@ define MemoryRelay_IsEnabled=:IsEnabled
 
 //#region MiningLaser
 //Mining laser turns off when this is set to 0 and on when set to anything else Range: 0 - 1
-define MiningLaser_MiningLaserOn=:MiningLaserOn
+define MiningLaser_On=:MiningLaserOn
 //The length of the beam. Measured in meters. Range: 0 - 20
-define MiningLaser_MiningLaserBeamLength=:MiningLaserBeamLength
+define MiningLaser_Length=:MiningLaserBeamLength
 //#endregion
 
 //#region ModularDeviceRack
@@ -380,12 +347,6 @@ define ModularDisplays_PanelMinValue=:PanelMinValue
 //The range at or over which the progress bar will appear full(PanelMaxValue-PanelMinValue=TrueMaxValue) Range: 100
 define ModularDisplays_PaneMaxValue=:PaneMaxValue
 //The smallest increment the number and progress bar will reflect, written out as a power of 10 (i.e. 0.01 will display two decimal places) Range: 1
-define ModularDisplays_PanelVariableResolution=:PanelVariableResolution
-//#endregion
-//#region ModularDisplays
-//The value to display on the text panel
-define ModularDisplays_PanelValue=:PanelValue
-//The smallest increment the number and text panel will reflect, written out as a power of 10 (i.e. 0.01 will display two decimal places) Range: 1
 define ModularDisplays_PanelVariableResolution=:PanelVariableResolution
 //#endregion
 
@@ -413,17 +374,6 @@ define OreCollector_Power=:Power
 define PipeSocketBoard_RadiatorCoolingRateLimit=:RadiatorCoolingRateLimit
 //Current cooling rate for this pipe socket board. Range: 0 - 100
 define PipeSocketBoard_RadiatorCoolingRate=:RadiatorCoolingRate
-//#endregion
-
-//#region PlasmaThruster
-//Requested output of the thruster Range: 0 - 10 000
-define PlasmaThruster_ThrusterState=:ThrusterState
-//Current output of the thruster Range: 0 - 10 000
-define PlasmaThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
-//Active state of the thruster Range: 0 / 1
-define PlasmaThruster_isActive=:isActive
-//Current charge level of the thruster Range: 0 - 1
-define PlasmaThruster_chargeLevel=:chargeLevel
 //#endregion
 
 //#region PropellantTank
@@ -569,28 +519,32 @@ define ShipDiagnosticScanner_DurabilityErrors=:DurabilityErrors
 
 //#region ShipTransponder
 //On/off Range: 0 - 1
-define ShipTransponder_transponderActive=:transponderActive
+define ShipTransponder_Active=:transponderActive
 //Owner of transponder/ship. Filled at creation Range: string
-define ShipTransponder_transponderOwner=:transponderOwner
+define ShipTransponder_Owner=:transponderOwner
 //Name of ship that transponder is tied to. Filled at creation Range: string
-define ShipTransponder_transponderShipName=:transponderShipName
+define ShipTransponder_ShipName=:transponderShipName
 //Is the transponder inside a safezone? Range: 0 - 1
-define ShipTransponder_insideSafezone=:insideSafezone
+define ShipTransponder_InsideSafezone=:insideSafezone
 //Can this ship currently be damaged by players? Range: 0 - 1
-define ShipTransponder_playerDamage=:playerDamage
+define ShipTransponder_PlayerDamage=:playerDamage
 //Can this ship currently be damaged by other ships? Range: 0 - 1
-define ShipTransponder_shipDamage=:shipDamage
+define ShipTransponder_ShipDamage=:shipDamage
 //Can this ship currently be damaged by collisions? Range: 0 - 1
-define ShipTransponder_collisionDamage=:collisionDamage
+define ShipTransponder_CollisionDamage=:collisionDamage
 //Can a new station be constructed in the current area? Range: 0 - 1
-define ShipTransponder_stationsAllowed=:stationsAllowed
+define ShipTransponder_StationsAllowed=:stationsAllowed
 //#endregion
 
 //#region SocketBoard
 //Upper limit for conversion rate for this socket Range: 0 - 100
-define SocketBoard_SocketUnitRateLimit=:SocketUnitRateLimit
+define SocketBoard_UnitRateLimit=:SocketUnitRateLimit
 //Current conversion rate for this socket. Output is being calculated at 1 eps * this percentage per second. Range: 0 - 100 (0-10000 eps)
-define SocketBoard_SocketUnitRate=:SocketUnitRate
+define SocketBoard_UnitRate=:SocketUnitRate
+
+// the maxium power a socket board can provide
+define SocketBoard_MaxPower=10000
+
 //#endregion
 
 //#region SolarPanelLightSensor
@@ -613,71 +567,57 @@ define SolarPowerConverter_ArrayAreaTotal=:ArrayAreaTotal
 
 //#region Thrusters
 //Requested output of the thruster Range: 0 - 10 000
-define Thrusters_ThrusterState=:ThrusterState
+define Thrusters_State=:ThrusterState
 //Current output of the thruster Range: 0 - 10 000
-define Thrusters_ThrusterCurrentThrust=:ThrusterCurrentThrust
+define Thrusters_CurrentThrust=:ThrusterCurrentThrust
 //#endregion
 //#region Thrusters
 //1 = charge ; 0 = discharge Range: /
-define Thrusters_isactive=:isactive
+define Thrusters_IsActive=:isactive
 //the current charge level of the plasma thruster, must be 1 to produce thrust Range: 0 - 1
-define Thrusters_chargelevel=:chargelevel
+define Thrusters_ChargeLevel=:chargelevel
 //#endregion
 
 //#region TorpedoLauncher
 //Identifier of tube Range: X
-define TorpedoLauncher_tube=:tube
+define TorpedoLauncher_Tube=:tube
 //Should the launcher's torpedo be locked in place? Range: 0 - 1
 define TorpedoLauncher_LauncherLock=:LauncherLock
 //Which torpedo tube is currently selected and thus is ready to fire Range: X
-define TorpedoLauncher_selectedTube=:selectedTube
+define TorpedoLauncher_SelectedTube=:selectedTube
 //Status of the tube's magazine Range: "Empty" / "Locked"
-define TorpedoLauncher_tubeStatus=:tubeStatus
+define TorpedoLauncher_TubeStatus=:tubeStatus
 //Launch the currently selected torpedo Range: 0 - 1
 define TorpedoLauncher_launchTorpedo=:launchTorpedo
 //#endregion
 
 //#region TractorBeam
 //Beam on/off Range: 1 or 0
-define TractorBeam_tractorBeamOnState=:tractorBeamOnState
+define TractorBeam_OnState=:tractorBeamOnState
 //When set to 1, brings the object grabbed by the beam to a stop, then turns off the beam Range: 1 or 0
-define TractorBeam_tractorBeamSoftRelease=:tractorBeamSoftRelease
+define TractorBeam_SoftRelease=:tractorBeamSoftRelease
 //When set to 1, tractor beam tries to snap held object to nearby objects Range: 1 or 0
-define TractorBeam_tractorBeamSnapToObjects=:tractorBeamSnapToObjects
+define TractorBeam_SnapToObjects=:tractorBeamSnapToObjects
 //Length (meters) of the beam when the beam is not attached to anything. Max range of the beam. Range: 0-100
-define TractorBeam_tractorBeamSearchLength=:tractorBeamSearchLength
+define TractorBeam_SearchLength=:tractorBeamSearchLength
 //Maximum amount of force the beam will try to apply to grabbed object. Range: 0-50,000
-define TractorBeam_tractorBeamForce=:tractorBeamForce
+define TractorBeam_Force=:tractorBeamForce
 //Maximum amount of torque the beam will try to apply to grabbed object. Range: 0-50,000
-define TractorBeam_tractorBeamTorque=:tractorBeamTorque
+define TractorBeam_Torque=:tractorBeamTorque
 //The distance (meters) the beam tries to move a held object to. Resets on grab, but does not message network / other devices. Range: 0-100
-define TractorBeam_tractorBeamPosition=:tractorBeamPosition
+define TractorBeam_Position=:tractorBeamPosition
 //The yaw (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
-define TractorBeam_tractorBeamYaw=:tractorBeamYaw
+define TractorBeam_Yaw=:tractorBeamYaw
 //The pitch (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
-define TractorBeam_tractorBeamPitch=:tractorBeamPitch
+define TractorBeam_Pitch=:tractorBeamPitch
 //The roll (degrees) the beam tries to move a held object to, relative to the base. Resets on grab, but does not message network / other devices. Range: -
-define TractorBeam_tractorBeamRoll=:tractorBeamRoll
+define TractorBeam_Roll=:tractorBeamRoll
 //Indicates whether an object is grabbed by the beam. Range: 1 or 0
-define TractorBeam_tractorBeamObjectInBeam=:tractorBeamObjectInBeam
+define TractorBeam_ObjectInBeam=:tractorBeamObjectInBeam
 //Indicates the force currently being applied to the grabbed object. Can be used to detect when the grabbed object has been set to the target position. Range: -
-define TractorBeam_tractorBeamForceApplied=:tractorBeamForceApplied
+define TractorBeam_ForceApplied=:tractorBeamForceApplied
 //Indicates the torque currently being applied to the grabbed object. Can be used to detect when the grabbed object has been set to the target rotation. Range: -
-define TractorBeam_tractorBeamTorqueApplied=:tractorBeamTorqueApplied
-//#endregion
-
-//#region TriangleThruster
-//Requested output of the thruster Range: 0 - 10 000
-define TriangleThruster_ThrusterState=:ThrusterState
-//Current output of the thruster Range: 0 - 10 000
-define TriangleThruster_ThrusterCurrentThrust=:ThrusterCurrentThrust
-//#endregion
-
-//#region TriangleThrusterBody
-//Requested output of the thruster Range: 0 - 10 000
-define TriangleThrusterBody_ThrusterState=:ThrusterState
-//Current output of the thruster Range: 0 - 10 000
-define TriangleThrusterBody_ThrusterCurrentThrust=:ThrusterCurrentThrust
+define TractorBeam_TorqueApplied=:tractorBeamTorqueApplied
 //#endregion
 
 //#region Turntable

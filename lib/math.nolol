@@ -1,0 +1,12 @@
+include "std/math"
+
+// get the f part of a number
+macro math_fpart(x) expr
+	math_mod(x,1)
+end
+
+
+// this is shorter on basic chip becuse math 
+macro basic_math_fpart(x) expr
+	x - math_floor(x)
+end

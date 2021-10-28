@@ -1,17 +1,4 @@
-define IForwardBack=:FcuForward
-define IRightLeft=:FcuRightLeft
-define IFcuUpDown=:FcuUpDown
-define IRotationalPitch=:FcuRotationalPitch
-define IRotationalYaw=:FcuRotationalYaw
-define IRotationalRoll=:FcuRotationalRoll
-
-define OForward=:OutForward
-define OBackwards=:OutBack
-define ORightLeft=:OutRightLeft
-define OFcuUpDown=:OutUpDown
-define ORotationalPitch=:OutRotationalPitch
-define ORotationalYaw=:OutRotationalYaw
-define ORotationalRoll=:OutRotationalRoll
+include "config"
 
 
 

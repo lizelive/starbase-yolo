@@ -1,0 +1,3 @@
+define NumSockets=1
+define NumBats=10
+define FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit

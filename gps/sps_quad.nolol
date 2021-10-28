@@ -1,6 +1,0 @@
-include "sps"
-include "../config"
-
-while 1 do
-sps_quad(SPS1_T, SPS1_X, SPS1_Y, SPS1_Z, SPS1_Receiver1_TargetMessage, SPS1_Receiver2_TargetMessage, SPS1_Receiver3_TargetMessage, SPS1_Receiver4_TargetMessage, SPS1_Receiver1_SignalStrength, SPS1_Receiver2_SignalStrength, SPS1_Receiver3_SignalStrength, SPS1_Receiver4_SignalStrength)
-end

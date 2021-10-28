@@ -1,52 +1,35 @@
-define Time=:t
-
-//#region ISAN Recivers
-define SPS1_T=:w
-define SPS1_X=:x
-define SPS1_Y=:y
-define SPS1_Z=:z
-define SPS1_Receiver1_TargetMessage=:t1
-define SPS1_Receiver2_TargetMessage=:t2
-define SPS1_Receiver3_TargetMessage=:t3
-define SPS1_Receiver4_TargetMessage=:t4
-define SPS1_Receiver1_SignalStrength=:s1
-define SPS1_Receiver2_SignalStrength=:s2
-define SPS1_Receiver3_SignalStrength=:s3
-define SPS1_Receiver4_SignalStrength=:s4
-
-define SPS2_T=:p
-define SPS2_X=:q
-define SPS2_Y=:r
-define SPS2_Z=:s
-define SPS2_Receiver1_TargetMessage=:t5
-define SPS2_Receiver2_TargetMessage=:t6
-define SPS2_Receiver3_TargetMessage=:t7
-define SPS2_Receiver4_TargetMessage=:t8
-define SPS2_Receiver1_SignalStrength=:s5
-define SPS2_Receiver2_SignalStrength=:s6
-define SPS2_Receiver3_SignalStrength=:s7
-define SPS2_Receiver4_SignalStrength=:s8
+//#region State
 
 //#endregion
 
-// global error message
-define Error=:error
+//#region Controls
+define ForwardBack=:FcuForward
+define RightLeft=:FcuRightLeft
+define FcuUpDown=:FcuUpDown
+define RotationalPitch=:FcuRotationalPitch
+define RotationalYaw=:FcuRotationalYaw
+define RotationalRoll=:FcuRotationalRoll
+//#endregion
+
+
+//#region ISAN Recivers
+
+
+//#endregion
+
 
 //#region Physics Constants
 
 // how much power a socket converts
-define MaxSocketPower=10000
 
 //#endregion
 
 //#region Power
-define NumSockets=1
-define NumBats=10
 
 
 
 // the rate of fuel
-define FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit
+
 
 //#endregion
 

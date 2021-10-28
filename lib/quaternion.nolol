@@ -37,4 +37,4 @@ macro quat_mult(o0, o1, o2, o3, r0, r1, r2, r3, s0, s1, s2, s3) block
 	o3=r0*s3-r1*s2+r2*s1+r3s0
 end
 
-quat_mult(o0,o1,o2,o3,r0,r1,r2,r3,s0,s1,s2,s3)
+//quat_mult(o0,o1,o2,o3,r0,r1,r2,r3,s0,s1,s2,s3)
