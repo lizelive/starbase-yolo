@@ -1,0 +1,3 @@
+include "../lib/devices"
+
+define Mining_LaserOn = MiningLaser_On

@@ -9,11 +9,6 @@ define NumSockets = 4
 
 include "../config"
 
-
-//constant
-define MaxSocketPower=10000
-
-
 now=Time
 dTime=now-last
 

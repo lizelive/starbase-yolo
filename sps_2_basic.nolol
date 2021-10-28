@@ -1,12 +1,11 @@
-include "sps/core"
-include "config/sps"
-include "config/clock"
+include "nav/sps"
+include "config/nav"
+include "lib/clock"
 
 if SPS2_MODE then
-	if SPS2_MODE==1 then
-		sps_load_consts(MaxRange,TargetMessage1,TargetMessage2,TargetMessage3,TargetMessage4,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)
-	else
-		sps_load_consts(MaxRange,SPS2_Receiver1_TargetMessage,SPS2_Receiver2_TargetMessage,SPS2_Receiver3_TargetMessage,SPS2_Receiver4_TargetMessage,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)	
+	sps_load_consts()
+	if SPS2_MODE==4 then
+		sps_quad_init(SPS2_Receiver1_TargetMessage,SPS2_Receiver2_TargetMessage,SPS2_Receiver3_TargetMessage,SPS2_Receiver4_TargetMessage)
 	end
 
 	while 1 do

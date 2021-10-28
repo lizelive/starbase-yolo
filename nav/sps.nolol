@@ -1,33 +1,11 @@
 include "std/logic"
 
-macro sps_load_consts(MaxRange, TargetMessage1, TargetMessage2, TargetMessage3, TargetMessage4, CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4) block
-	MaxRange=1000000
-	
-	TargetMessage1="origin_north"
-	TargetMessage2="origin_south"
-	TargetMessage3="origin_east"
-	TargetMessage4="origin_west"
-	
-	CX1=1279999.969
-	CX2=1279999.967
-	CX3=295384.615
-	CX4=-202105.263
-	CY1=-218947.368
-	CY2=320000.000
-	CY3=1386666.667
-	CY4=1386666.667
-	CZ1=-160000.000
-	CZ2=-160000.000
-	CZ3=160000.000
-	CZ4=160000.000
-end
-
-
 macro sps_calc(X, Y, Z, R1, R2, R3, R3)<CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4> line
 	X=R1/CX1+R2/CX2+R3/CX3+R4/CX4; Y=R1/CY1+R2/CY2+R3/CY3+R4/CY4; Z=R1/CZ1+R2/CZ2+R3/CZ3+R4/CZ4
 end
 
 
+// setup quad reciver
 macro sps_quad_init(Receiver1_TargetMessage, Receiver2_TargetMessage, Receiver3_TargetMessage, Receiver4_TargetMessage)<TargetMessage1, TargetMessage2, TargetMessage3, TargetMessage4> block
 	Receiver1_TargetMessage=TargetMessage1
 	Receiver2_TargetMessage=TargetMessage2
@@ -35,16 +13,16 @@ macro sps_quad_init(Receiver1_TargetMessage, Receiver2_TargetMessage, Receiver3_
 	Receiver4_TargetMessage=TargetMessage4
 end
 
+// measure and calc from a quad reciver setup
 macro sps_quad(X, Y, Z, Receiver1_SignalStrength, Receiver2_SignalStrength, Receiver3_SignalStrength, Receiver4_SignalStrength)<MaxRange> block
 	R1=MaxRange-Receiver1_SignalStrength; R1*=R1
 	R2=MaxRange-Receiver2_SignalStrength; R2*=R2
 	R3=MaxRange-Receiver3_SignalStrength; R3*=R3
 	R4=MaxRange-Receiver4_SignalStrength; R4*=R4
-	//X=R1/CX1+R2/CX2+R3/CX3+R4/CX4; Y=R1/CY1+R2/CY2+R3/CY3+R4/CY4; Z=R1/CZ1+R2/CZ2+R3/CZ3+R4/CZ4
 	sps_calc(X,Y,Z,R1,R2,R3,R3)	
 end
 
-
+// measure and calc from a mono reciver setup
 macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRange, TargetMessage1, TargetMessage2, TargetMessage3, TargetMessage4> block
 	// next=measure1; Receiver1_TargetMessage=TargetMessage1; goto calc
 	// measure1> R1=MaxRange-Receiver1_SignalStrength; R1*=R1; next=measure2; Receiver1_TargetMessage=TargetMessage2; goto calc
@@ -53,19 +31,44 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	// measure4> R4=MaxRange-Receiver1_SignalStrength; R4*=R4; next=measure1; Receiver1_TargetMessage=TargetMessage1; goto calc
 	// calc> 
 	
-	Receiver_TargetMessage=TargetMessage1 $
+
+	Receiver_TargetMessage=TargetMessage1
+	Receiver_SignalStrength=0
+	logic_wait(Receiver_SignalStrength)	
 	R1=MaxRange-Receiver_SignalStrength
 	R1*=R1
-	Receiver_TargetMessage=TargetMessage2 $
+	
+	Receiver_TargetMessage=TargetMessage2
+	Receiver_SignalStrength=0
+	logic_wait(Receiver_SignalStrength)	
 	R2=MaxRange-Receiver_SignalStrength
 	R2*=R2
-	Receiver_TargetMessage=TargetMessage3 $
+
+	Receiver_TargetMessage=TargetMessage3
+	Receiver_SignalStrength=0
+	logic_wait(Receiver_SignalStrength)	
 	R3=MaxRange-Receiver_SignalStrength
 	R3*=R3
-	Receiver_TargetMessage=TargetMessage4 $
+	
+	Receiver_TargetMessage=TargetMessage4
+	Receiver_SignalStrength=0
+	logic_wait(Receiver_SignalStrength)	
 	R4=MaxRange-Receiver_SignalStrength
 	R4*=R4
-	Receiver_TargetMessage=TargetMessage1 $
+
+	// Receiver_TargetMessage=TargetMessage1 $
+	// R1=MaxRange-Receiver_SignalStrength
+	// R1*=R1
+	// Receiver_TargetMessage=TargetMessage2 $
+	// R2=MaxRange-Receiver_SignalStrength
+	// R2*=R2
+	// Receiver_TargetMessage=TargetMessage3 $
+	// R3=MaxRange-Receiver_SignalStrength
+	// R3*=R3
+	// Receiver_TargetMessage=TargetMessage4 $
+	// R4=MaxRange-Receiver_SignalStrength
+	// R4*=R4
+	// Receiver_TargetMessage=TargetMessage1 $
 	sps_calc(X,Y,Z,R1,R2,R3,R3)	
 end
 

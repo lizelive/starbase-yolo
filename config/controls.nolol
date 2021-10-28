@@ -1,7 +1,0 @@
-// main movement
-define Control_ForwardBack=:FcuForward
-define Control_RightLeft=:FcuRightLeft
-define Control_FcuUpDown=:FcuUpDown
-define Control_RotationalPitch=:FcuRotationalPitch
-define Control_RotationalYaw=:FcuRotationalYaw
-define Control_RotationalRoll=:FcuRotationalRoll

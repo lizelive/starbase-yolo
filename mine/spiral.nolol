@@ -1,4 +1,4 @@
-include "lib/trig"
+include "../lib/trig"
 include "config"
 
 // resting position

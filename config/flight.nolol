@@ -1,0 +1,7 @@
+define Fcu_Forward=:ff
+define Fcu_Backwards=:fb
+define Fcu_RightLeft=:fl
+define Fcu_FcuUpDown=:fu
+define Fcu_RotationalPitch=:fp
+define Fcu_RotationalYaw=:fy
+define Fcu_RotationalRoll=:fr

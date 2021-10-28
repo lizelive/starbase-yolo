@@ -1,4 +1,4 @@
-include "config/clock"
+include "lib/clock"
 define TimePerLine=1/5
 $ Clock_Time+=TimePerLine; Clock_Tick=0; Clock_Tock=1; Clock_C20_01=1; Clock_C20_20=0 $
 $ Clock_Time+=TimePerLine; Clock_Tick=1; Clock_Tock=0; Clock_C20_02=1; Clock_C20_01=0 $

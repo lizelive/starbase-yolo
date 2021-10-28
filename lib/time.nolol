@@ -1,0 +1,37 @@
+// the current time4
+define Clock_Time=:T
+
+define Clock_Tick=:I
+define Clock_Tock=:O
+
+// not sure what the l20 loop is for
+define Clock_L20_01=:L01
+define Clock_L20_02=:L02
+define Clock_L20_03=:L03
+define Clock_L20_04=:L04
+define Clock_L20_05=:L05
+define Clock_L20_06=:L06
+define Clock_L20_07=:L07
+define Clock_L20_08=:L08
+define Clock_L20_09=:L09
+define Clock_L20_10=:L10
+define Clock_L20_11=:L11
+define Clock_L20_12=:L12
+define Clock_L20_13=:L13
+define Clock_L20_14=:L14
+define Clock_L20_15=:L15
+define Clock_L20_16=:L16
+define Clock_L20_17=:L17
+define Clock_L20_18=:L18
+define Clock_L20_19=:L19
+define Clock_L20_20=:L20
+
+// use global time
+macro now() expr
+	Clock_Time
+end
+
+macro dtime(out)<lasttime> block
+    out = lasttime - now()
+    lasttime += out
+end

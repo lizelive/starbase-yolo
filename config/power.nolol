@@ -1,3 +1,10 @@
 define NumSockets=1
 define NumBats=10
 define FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit
+
+// state varibles
+include "ux"
+define Power_Mode=Control_Power_Mode
+define Power_Generated=:PowerGenerated
+define Power_Used=:PowerUsed
+define Power_Timeleft=:PowerLeft

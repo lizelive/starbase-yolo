@@ -1,3 +1,4 @@
+// manage an array of lasers
 define LaserDist=:LD
 define LaserTime=:LT
 define LaserX=:LX

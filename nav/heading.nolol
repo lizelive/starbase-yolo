@@ -1,9 +1,8 @@
 include "../lib/trig_advanced"
 include "../lib/vector"
 include "../lib/util"
-include "../config"
+include "../config/nav"
 
-define MinSpeedForMovement=1
 
 
 // read sensor 1
