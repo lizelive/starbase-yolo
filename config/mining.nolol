@@ -1,3 +1,13 @@
-include "../lib/devices"
+define Mining_LaserOn = :MiningLaserOn
 
-define Mining_LaserOn = MiningLaser_On
+define Stuff = 43
+
+
+// scanner
+define MatScanner_Active=:Active
+define MatScanner_Index=:Index
+define MatScanner_ScanResults=:ScanResults
+define MatScanner_Material=:Material
+define MatScanner_Volume=:Volume
+define MatScanner_Scan=:Scan
+define MatScanner_Reset=:Reset

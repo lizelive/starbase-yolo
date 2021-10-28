@@ -1,25 +1,11 @@
 // main movement
-define Control_ForwardBack=:FcuForward
-define Control_RightLeft=:FcuRightLeft
-define Control_FcuUpDown=:FcuUpDown
-define Control_RotationalPitch=:FcuRotationalPitch
-define Control_RotationalYaw=:FcuRotationalYaw
-define Control_RotationalRoll=:FcuRotationalRoll
 
 
 define Control_Mode=:mode
 
 
-define Display_Nav = :_
 
 
-// fuck you
-define Control_Mine=:FcuRotationalRoll
-define Control_GeneratorMode=:FcuRotationalRoll
+define Waypoint_Save=:save
+define Waypoint_Select=:select
 
-
-define Control_Waypoint_Save=:save
-define Control_Waypoint_Select=:select
-
-define Display_Power = :power
-define Control_Power_Mode=:powermode

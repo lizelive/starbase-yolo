@@ -1,6 +1,6 @@
 include "nav/sps"
 include "config/nav"
-include "lib/clock"
+include "lib/time"
 
 if SPS1_MODE!=SPS_MODE_NONE then
 	sps_load_consts()	

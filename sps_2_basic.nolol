@@ -1,19 +1,18 @@
 include "nav/sps"
 include "config/nav"
-include "lib/clock"
+include "lib/time"
 
-if SPS2_MODE then
-	sps_load_consts()
-	if SPS2_MODE==4 then
-		sps_quad_init(SPS2_Receiver1_TargetMessage,SPS2_Receiver2_TargetMessage,SPS2_Receiver3_TargetMessage,SPS2_Receiver4_TargetMessage)
+if SPS2_MODE!=SPS_MODE_NONE then
+	sps_load_consts()	
+	if SPS2_MODE==SPS_MODE_QUAD then
+		sps_quad_init(SPS2_Receiver1_TargetMessage,SPS2_Receiver2_TargetMessage,SPS2_Receiver3_TargetMessage,SPS2_Receiver4_TargetMessage)		
 	end
-
 	while 1 do
-		if SPS2_MODE==1 then
-			sps_mono(SPS2_X,SPS2_Y,SPS2_Z,SPS2_Receiver1_TargetMessage,SPS2_Receiver1_SignalStrength)		
-		else
-			sps_quad(SPS2_X,SPS2_Y,SPS2_Z,SPS2_Receiver1_SignalStrength,SPS2_Receiver2_SignalStrength,SPS2_Receiver3_SignalStrength,SPS2_Receiver4_SignalStrength)		
+		if SPS2_MODE==SPS_MODE_MONO then
+			sps_mono(SPS2_X,SPS2_Y,SPS2_Z,SPS2_Receiver1_TargetMessage,SPS2_Receiver1_SignalStrength)			
+		else if SPS2_MODE==SPS_MODE_QUAD then
+			sps_quad(SPS2_X,SPS2_Y,SPS2_Z,SPS2_Receiver1_SignalStrength,SPS2_Receiver2_SignalStrength,SPS2_Receiver3_SignalStrength,SPS2_Receiver4_SignalStrength)			
 		end
-		SPS2_T = Clock_Time
+		SPS2_T=Clock_Time
 	end
 end

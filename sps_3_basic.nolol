@@ -1,19 +1,18 @@
 include "nav/sps"
 include "config/nav"
-include "lib/clock"
+include "lib/time"
 
-if SPS3_MODE then
-	sps_load_consts()
-	if SPS3_MODE==4 then
-		sps_quad_init(SPS3_Receiver1_TargetMessage,SPS3_Receiver2_TargetMessage,SPS3_Receiver3_TargetMessage,SPS3_Receiver4_TargetMessage)
+if SPS3_MODE!=SPS_MODE_NONE then
+	sps_load_consts()	
+	if SPS3_MODE==SPS_MODE_QUAD then
+		sps_quad_init(SPS3_Receiver1_TargetMessage,SPS3_Receiver2_TargetMessage,SPS3_Receiver3_TargetMessage,SPS3_Receiver4_TargetMessage)		
 	end
-
 	while 1 do
-		if SPS3_MODE==1 then
-			sps_mono(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_TargetMessage,SPS3_Receiver1_SignalStrength)		
-		else
-			sps_quad(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_SignalStrength,SPS3_Receiver2_SignalStrength,SPS3_Receiver3_SignalStrength,SPS3_Receiver4_SignalStrength)		
+		if SPS3_MODE==SPS_MODE_MONO then
+			sps_mono(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_TargetMessage,SPS3_Receiver1_SignalStrength)			
+		else if SPS3_MODE==SPS_MODE_QUAD then
+			sps_quad(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_SignalStrength,SPS3_Receiver2_SignalStrength,SPS3_Receiver3_SignalStrength,SPS3_Receiver4_SignalStrength)			
 		end
-		SPS3_T = Clock_Time
+		SPS3_T=Clock_Time
 	end
 end

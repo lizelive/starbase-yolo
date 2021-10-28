@@ -1,36 +1,23 @@
 include "std/math"
 include "std/logic"
 
-macro oddq(x) expr
-	math_mod(x,2)
+
+
+seed=0
+
+lcr_a=1381
+lcr_b=3.241
+
+macro lcg(seed)<lcr_a,lcr_b> block
+	seed=seed*lcr_a+lcr_b
+	seed=math_mod(seed,1)
 end
-
-macro collatz_step(x) expr
-	logic_ternary(oddq(x),3*x+1,x/2)
-end
-
-// derived from MMIX by Donald Knuth
-define mmix_multiplier = 6364136223846793.005
-define mmix_increment = 1442695040888963.407 / 1000
-
-// modulus is 2^64
-// lcr
-// this isn't really what i want. i am effectivly / 1e6 every time
-macro mmix_lcr(x) expr
- mmix_multiplier * x + mmix_increment
-end
-
-seed = 0
-
-define lcr_a = 1381
-define lcr_b = 3.241
 
 // produce a random number between 0-1
 // {21221.,8.527}->{1000,2.90652*^-31} 
-macro rng(o) <seed> block
-seed = seed * lcr_a + lcr_b
-seed = math_mod(seed, 1)
-o = seed
+macro rng(o)<seed,lcr_a,lcr_b> block
+	lcg(seed)
+	o=seed
 end
 
-rng(:out)
+rng(:x)

@@ -1,0 +1,15 @@
+
+include "lib/debug"
+include "lib/string"
+include "config/time"
+include "config/power"
+
+include "lib/time"
+include "lib/devices"
+
+
+include "power/manager"
+
+include "power/display"
+power_update()
+power_display()

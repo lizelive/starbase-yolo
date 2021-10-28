@@ -1,0 +1,38 @@
+include "../config/power"
+include "../config/ux"
+
+include "../lib/string"
+
+include "std/math"
+macro power_display() block
+	msg=""
+	
+	if Power_Mode==Power_Mode_Max then
+		msg+="M"
+	else if Power_Mode==Power_Mode_Auto then
+		msg+="A"
+	else if Power_Mode==Power_Mode_Off then
+		msg+="O"
+	end
+	msg+=NEW_LINE
+	percentageStoredPower=math_floor(Power_Stored/Power_MaxStored*100)
+	msg+="B"+percentageStoredPower+"%"
+	timeToExtreme = 0
+	
+	// time to discharge
+	timeToExtreme=Power_Stored/Power_Net
+	
+	// charging
+	if batteryRate>0 then
+		timeToExtreme=Power_MaxStored/Power_Net - timeToExtreme
+	end
+	timeToExtreme=math_floor(timeToExtreme)
+	max = 99999
+	timeToExtreme=math_clamp(timeToExtreme,-max,max) // display at most a day of power
+	msg+=NEW_LINE+timeToExtreme+"s"
+	
+	Display_Power=msg
+	
+	
+	
+end

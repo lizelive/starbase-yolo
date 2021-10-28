@@ -1,0 +1,5 @@
+str = "Waypoint /nX:32"
+out = str - "/n"
+nice = str - out
+cool = 0 + "help"
+:out = nice

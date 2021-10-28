@@ -1,10 +1,30 @@
-define NumSockets=1
-define NumBats=10
-define FuelChamberUnitRateLimit=:FuelChamberUnitRateLimit
+// config for the power manager
+define Power_Display=:Power
+define Power_Mode=:PowerMode
 
-// state varibles
-include "ux"
-define Power_Mode=Control_Power_Mode
+// the number of sockets on this ship
+define NumSockets=1
+
+// the number of batteries
+define NumBats=1
+
+// asumes that all are of same tier
+define NumFuelChambers=1
+
+// enum
+define Power_Mode_Max=1
+define Power_Mode_Auto=0
+define Power_Mode_Off=-1
+
+// state
+define Power_Generated_Max=:PowerMax
 define Power_Generated=:PowerGenerated
 define Power_Used=:PowerUsed
-define Power_Timeleft=:PowerLeft
+define Power_Net=:PowerNet
+define Power_Stored=:PowerStored
+define Power_MaxStored=:PowerMaxStored
+
+//define Power_TimeLeft=:PowerLeft
+
+define Power_UnitFuelStored=:FuelStored
+define Power_UnitFuelUsed=:FuelUsed

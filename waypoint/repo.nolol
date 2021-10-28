@@ -1,0 +1,17 @@
+include "../config/waypoint"
+include "std/logic"
+
+if Waypoint_LoadSave then
+	
+end
+
+
+
+macro io(value, slot, operation) block
+	if operation==Waypoint_Load then
+		value=slot
+	else if operation==Waypoint_Save then
+		slot=value
+	end
+end
+

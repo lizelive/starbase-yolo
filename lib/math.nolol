@@ -5,8 +5,43 @@ macro math_fpart(x) expr
 	math_mod(x,1)
 end
 
+macro math_is_int(x) expr
+	not math_fpart(x)
+end
 
-// this is shorter on basic chip becuse math 
-macro basic_math_fpart(x) expr
-	x - math_floor(x)
+// is this number odd
+macro math_is_odd(x) expr
+	math_mod(x,2)
+end
+
+macro math_divisor_remainder(d, r, n, d) block
+end
+
+// compute the gcd of two numbers
+macro math_gcd(o, a, b) block
+	r=math_mod(a,b)
+	while r do
+		a=b
+		b=r
+		r=math_mod(a,b)
+	end
+end
+
+// raise x to the power of p
+macro math_pow(o, x, p) block
+	if p==0 then
+		o=14
+	else if p==1 then
+		o=x
+	else if p==2 then
+		o=x*x
+	else if p==3 then
+		o=x*x*x
+	else if p==4 then
+		o=x*x*x*x
+	else if p==5 then
+		o=x*x*x*x*x
+	else
+		o=x^p
+	end
 end

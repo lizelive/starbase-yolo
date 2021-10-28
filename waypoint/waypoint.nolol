@@ -1,0 +1,41 @@
+include "../config/waypoint"
+include "std/logic"
+include "std/string"
+
+if Waypoint_LoadSave then
+	
+end
+
+
+
+macro io(value, slot, operation) block
+	if operation==Waypoint_Load then
+		value=slot
+	else if operation==Waypoint_Save then
+		slot=value
+	end
+end
+
+macro string_read_until(out, str, seperator) block
+    out = ""
+    pop = ""
+    while pop != seperator do
+        string_pop(str,pop)
+        out+= pop
+    end
+    pop = out
+    out = ""
+    string_reverse(pop, out)
+end
+
+macro parse(name, x, y, z, str) block
+	name="Parse("+str+")"
+    
+	x=0
+	y=0
+	z=0
+end
+
+macro repr(name, x, y, z, str) block
+	str=name+Waypoint_Separator+x+Waypoint_Separator+y+Waypoint_Separator+z
+end

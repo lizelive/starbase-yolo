@@ -1,0 +1,120 @@
+include "std/string"
+//include "debug"
+
+define NEW_LINE = "\n"
+
+// outputs digit d from char c
+// from https://github.com/Jerald/yolol-is-cylons/blob/master/thinktank/Str2num.md#Final-Version--Universal
+macro char_parse_digit_base10(c, d) block
+	//assert(string_contains("0123456789","d"), "invalid character")
+
+	d=5*(c>4)
+	d+=2*(c>(d+1))
+	d+=c>d
+	d+=c>d
+end
+
+
+macro string_deque(str, out) block
+	// out=str
+    // --str
+    // out-=str
+    out=str-(--str)
+end
+
+macro string_empty(str) expr
+	str==""
+end
+
+macro string_not_empty(str) expr
+	str!=""
+end
+
+macro string_read_until(out, str, seperator)<ignore> block
+	out=""
+	ignore=""
+	while ignore!=seperator and string_not_empty(str) do
+		out=ignore+out
+		string_pop(str,ignore)		
+		//ignore=str
+		//ignore-=str--
+	end
+end
+
+macro string_parse_integer(str, out) block
+	out=0
+	while string_not_empty(str) do
+		string_deque(str,c)		
+		char_parse_digit_base10(c,d)		
+		out=out*10+d
+	end
+end
+
+// runs anywhere
+macro string_parse_number(str, out) block
+	tmp=""
+	string_reverse(str,tmp)	
+	str=tmp
+	
+	out=0
+	tmp=0
+	while i!="" do
+		string_pop(str,char)		
+		if c<0 then
+			// im a decimal
+			out/=1000
+		else
+			char_parse_digit_base10(char,digit)			
+			
+		end
+		// parse digit
+		
+		
+		o+=d*10^j++
+		goto 2+c<0
+		o=n*(1-2*(c<0))
+		n/=b^--j
+		j=0
+	end
+end
+
+
+
+// asserteq(1,:d,"char_parse_digit_base10 1")
+
+//char_parse_digit_base10("2",:d)
+//asserteq(2,:d,"char_parse_digit_base10 1")
+
+
+macro test_string() block
+    char_parse_digit_base10("0",:0)
+    char_parse_digit_base10("1",:1)
+    char_parse_digit_base10("2",:2)
+    char_parse_digit_base10("3",:3)
+    char_parse_digit_base10("4",:4)
+    char_parse_digit_base10("5",:5)
+    char_parse_digit_base10("6",:6)
+    char_parse_digit_base10("7",:7)
+    char_parse_digit_base10("8",:8)
+    char_parse_digit_base10("9",:9)
+
+    char_parse_digit_base10(:c,:d)
+
+    str = "123"
+    string_deque(str,c1)
+    char_parse_digit_base10(c1,d1)
+end
+
+
+// hello="hello world"
+// string_read_until(out,hello," ")
+
+
+// :c1 = c1
+// :d1 = d1
+//string_parse_integer(str, o)
+//:out = o $
+
+// info("finished tests")
+//:Exit=1
+

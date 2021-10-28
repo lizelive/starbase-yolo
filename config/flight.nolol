@@ -1,3 +1,10 @@
+define Control_ForwardBack=:FcuForward
+define Control_RightLeft=:FcuRightLeft
+define Control_FcuUpDown=:FcuUpDown
+define Control_RotationalPitch=:FcuRotationalPitch
+define Control_RotationalYaw=:FcuRotationalYaw
+define Control_RotationalRoll=:FcuRotationalRoll
+
 define Fcu_Forward=:ff
 define Fcu_Backwards=:fb
 define Fcu_RightLeft=:fl
@@ -5,3 +12,9 @@ define Fcu_FcuUpDown=:fu
 define Fcu_RotationalPitch=:fp
 define Fcu_RotationalYaw=:fy
 define Fcu_RotationalRoll=:fr
+
+define Flight_TurnCoefc = 0
+
+define Approach_P = 1
+define Approach_I = 0
+define Approach_D = 0

@@ -1,0 +1,38 @@
+define SEV_INFO=6
+define SEV_LOG=5
+define SEV_DEBUG=4
+define SEV_ERROR=3
+define SEV_ASSERT=2
+define SEV_PANIC=1
+
+//log anything more serveir then
+define MAX_LEVEL=SEV_LOG
+define Message=:Message
+
+macro info(msg) block
+	message(msg,SEV_INFO)	
+end
+
+macro log(msg) block
+	message(msg,SEV_LOG)	
+end
+
+macro message(msg, sev) block
+	if sev<=MAX_LEVEL then
+		Message=msg
+		:Error++
+	end
+end
+
+macro assert(cond, msg) block
+	if not cond then
+		message(msg,SEV_ASSERT)		
+	end
+end
+
+macro asserteq(left, right, msg) block
+	if left!=right then
+		message(msg,SEV_ASSERT)		
+	end
+end
+

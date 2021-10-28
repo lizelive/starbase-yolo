@@ -1,0 +1,38 @@
+include "std/math"
+
+
+
+// a fast inacurate sin
+macro fast_sin(out, x) block
+	t=x/180
+	out=4*t*(1-math_abs(t))
+end
+
+macro fast_cos(out, x)<ignore> block
+	ignore=:x/180
+	out=ignore*ignore*(4*math_abs(ignore)-6)+1
+end
+
+macro fast_asin(out, y) block
+	out=40*(y*y+50)*y
+end
+
+macro fast_acos(out, y) block
+	out=90-40*(y*y+50)*y
+end
+
+macro fast_atan(out, y)<ignore> block
+	ignore=1+y^2
+	fast_sqrt(ignore,ignore)	
+	ignore=y/ignore
+	fast_asin(out,ignore)	
+end
+
+
+macro fast_sqrt(out, x)<ignore> block
+	ignore=x/55+3
+	ignore+=x/ignore
+	ignore+=x/ignore*4
+	ignore=x/ignore+ignore/16
+	out=ignore+x/ignore/4
+end
