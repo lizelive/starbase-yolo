@@ -1,0 +1,20 @@
+include "sps/core"
+include "config/sps"
+include "config/clock"
+
+if SPS3_MODE then
+	if SPS3_MODE==1 then
+		sps_load_consts(MaxRange,TargetMessage1,TargetMessage2,TargetMessage3,TargetMessage4,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)
+	else
+		sps_load_consts(MaxRange,SPS3_Receiver1_TargetMessage,SPS3_Receiver2_TargetMessage,SPS3_Receiver3_TargetMessage,SPS3_Receiver4_TargetMessage,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)	
+	end
+
+	while 1 do
+		if SPS3_MODE==1 then
+			sps_mono(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_TargetMessage,SPS3_Receiver1_SignalStrength)		
+		else
+			sps_quad(SPS3_X,SPS3_Y,SPS3_Z,SPS3_Receiver1_SignalStrength,SPS3_Receiver2_SignalStrength,SPS3_Receiver3_SignalStrength,SPS3_Receiver4_SignalStrength)		
+		end
+		SPS3_T = Clock_Time
+	end
+end

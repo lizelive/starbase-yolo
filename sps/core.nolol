@@ -1,3 +1,5 @@
+include "std/logic"
+
 macro sps_load_consts(MaxRange, TargetMessage1, TargetMessage2, TargetMessage3, TargetMessage4, CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4) block
 	MaxRange=1000000
 	
@@ -19,6 +21,7 @@ macro sps_load_consts(MaxRange, TargetMessage1, TargetMessage2, TargetMessage3, 
 	CZ3=160000.000
 	CZ4=160000.000
 end
+
 
 macro sps_calc(X, Y, Z, R1, R2, R3, R3)<CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4> line
 	X=R1/CX1+R2/CX2+R3/CX3+R4/CX4; Y=R1/CY1+R2/CY2+R3/CY3+R4/CY4; Z=R1/CZ1+R2/CZ2+R3/CZ3+R4/CZ4
@@ -65,18 +68,4 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	Receiver_TargetMessage=TargetMessage1 $
 	sps_calc(X,Y,Z,R1,R2,R3,R3)	
 end
-include "../config/sps"
 
-if SPS1_MODE==1 then
-	sps_load_consts(MaxRange,TargetMessage1,TargetMessage2,TargetMessage3,TargetMessage4,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)
-else
-	sps_load_consts(MaxRange,TargetMessage1,TargetMessage2,TargetMessage3,TargetMessage4,CX1,CX2,CX3,CX4,CY1,CY2,CY3,CY4,CZ1,CZ2,CZ3,CZ4)
-end
-
-while 1 do
-	if SPS1_MODE==1 then
-		sps_mono(SPS1_X,SPS1_Y,SPS1_Z,SPS1_Receiver1_TargetMessage,SPS1_Receiver1_SignalStrength)		
-	else
-		sps_quad(SPS1_X,SPS1_Y,SPS1_Z,SPS1_Receiver1_SignalStrength,SPS1_Receiver2_SignalStrength,SPS1_Receiver3_SignalStrength,SPS1_Receiver4_SignalStrength)		
-	end
-end

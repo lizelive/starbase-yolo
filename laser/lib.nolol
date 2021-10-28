@@ -1,0 +1,8 @@
+macro update_laser(x, y) block
+	if LaserTime>:Time or LaserDist>Dist then
+		LaserDist=Dist
+		LaserTime=Time
+		LaserX=X
+		LaserY=Y
+	end
+end

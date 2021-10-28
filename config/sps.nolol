@@ -1,9 +1,9 @@
 // configure the space positioning system
 define SPS1_MODE = 4
 define SPS1_T=:w
-define SPS1_X=:x
-define SPS1_Y=:y
-define SPS1_Z=:z
+define SPS1_X=:g
+define SPS1_Y=:h
+define SPS1_Z=:j
 define SPS1_Receiver1_TargetMessage=:t1
 define SPS1_Receiver2_TargetMessage=:t2
 define SPS1_Receiver3_TargetMessage=:t3
@@ -26,3 +26,17 @@ define SPS2_Receiver1_SignalStrength=:s5
 define SPS2_Receiver2_SignalStrength=:s6
 define SPS2_Receiver3_SignalStrength=:s7
 define SPS2_Receiver4_SignalStrength=:s8
+
+define SPS3_MODE = 1
+define SPS3_T=:p
+define SPS3_X=:q
+define SPS3_Y=:r
+define SPS3_Z=:s
+define SPS3_Receiver1_TargetMessage=:t5
+define SPS3_Receiver2_TargetMessage=:t6
+define SPS3_Receiver3_TargetMessage=:t7
+define SPS3_Receiver4_TargetMessage=:t8
+define SPS3_Receiver1_SignalStrength=:s5
+define SPS3_Receiver2_SignalStrength=:s6
+define SPS3_Receiver3_SignalStrength=:s7
+define SPS3_Receiver4_SignalStrength=:s8
