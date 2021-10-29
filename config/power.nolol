@@ -1,3 +1,4 @@
+// controls
 // config for the power manager
 define Power_Display=:Power
 define Power_Mode=:PowerMode
@@ -6,13 +7,14 @@ define Power_Mode=:PowerMode
 define NumSockets=1
 
 // the number of batteries
-define NumBats=1
+define NUM_BATS=1
 
 // asumes that all are of same tier
-define NumFuelChambers=1
+// not used rn
+define POWER_NUM_FUEL_CHAMBERS=1
 
 // enum
-define Power_Mode_Max=1
+define POWER_MODE_MAX=1
 define Power_Mode_Auto=0
 define Power_Mode_Off=-1
 
@@ -23,8 +25,5 @@ define Power_Used=:PowerUsed
 define Power_Net=:PowerNet
 define Power_Stored=:PowerStored
 define Power_MaxStored=:PowerMaxStored
-
-//define Power_TimeLeft=:PowerLeft
-
 define Power_UnitFuelStored=:FuelStored
 define Power_UnitFuelUsed=:FuelUsed

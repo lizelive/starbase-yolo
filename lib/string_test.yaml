@@ -1,0 +1,22 @@
+scripts: 
+  - string_test.nolol
+ignoreerrs: true
+cases:
+  - name: char_parse_digit
+    outputs:
+      parse0: 0
+      parse1: 1
+      parse2: 2
+      parse3: 3
+      parse4: 4
+      parse5: 5
+      parse6: 6
+      parse7: 7
+      parse8: 8
+      parse9: 9
+  - name: string_deque
+    outputs:
+      deque: ""
+      deque1: "1"
+      deque2: "2"
+      deque3: "3"

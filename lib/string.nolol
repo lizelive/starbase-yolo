@@ -1,25 +1,26 @@
 include "std/string"
 //include "debug"
 
-define NEW_LINE = "\n"
+define NEW_LINE="\n"
 
 // outputs digit d from char c
 // from https://github.com/Jerald/yolol-is-cylons/blob/master/thinktank/Str2num.md#Final-Version--Universal
-macro char_parse_digit_base10(c, d) block
+macro char_parse_digit(b, c, d) block
 	//assert(string_contains("0123456789","d"), "invalid character")
-
-	d=5*(c>4)
-	d+=2*(c>(d+1))
-	d+=c>d
-	d+=c>d
+	if b<=10 then
+		d=5*(c>4)
+		d+=2*(c>(d+1))
+		d+=c>d
+		d+=c>d
+	end
 end
 
 
 macro string_deque(str, out) block
-	// out=str
-    // --str
-    // out-=str
-    out=str-(--str)
+	out=str
+	--str
+	out-=str
+	// out=str- --str
 end
 
 macro string_empty(str) expr
@@ -31,7 +32,6 @@ macro string_not_empty(str) expr
 end
 
 macro string_read_until(out, str, seperator)<ignore> block
-	out=""
 	ignore=""
 	while ignore!=seperator and string_not_empty(str) do
 		out=ignore+out
@@ -87,22 +87,7 @@ end
 
 
 macro test_string() block
-    char_parse_digit_base10("0",:0)
-    char_parse_digit_base10("1",:1)
-    char_parse_digit_base10("2",:2)
-    char_parse_digit_base10("3",:3)
-    char_parse_digit_base10("4",:4)
-    char_parse_digit_base10("5",:5)
-    char_parse_digit_base10("6",:6)
-    char_parse_digit_base10("7",:7)
-    char_parse_digit_base10("8",:8)
-    char_parse_digit_base10("9",:9)
-
-    char_parse_digit_base10(:c,:d)
-
-    str = "123"
-    string_deque(str,c1)
-    char_parse_digit_base10(c1,d1)
+	
 end
 
 

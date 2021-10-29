@@ -5,7 +5,3 @@ define Control_Mode=:mode
 
 
 
-
-define Waypoint_Save=:save
-define Waypoint_Select=:select
-

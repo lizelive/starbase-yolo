@@ -7,7 +7,7 @@ include "std/math"
 macro power_display() block
 	msg=""
 	
-	if Power_Mode==Power_Mode_Max then
+	if Power_Mode==POWER_MODE_MAX then
 		msg+="M"
 	else if Power_Mode==Power_Mode_Auto then
 		msg+="A"

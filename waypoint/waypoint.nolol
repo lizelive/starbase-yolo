@@ -2,16 +2,16 @@ include "../config/waypoint"
 include "std/logic"
 include "std/string"
 
-if Waypoint_LoadSave then
+if WAYPOINT_IO_LOADSave then
 	
 end
 
 
 
 macro io(value, slot, operation) block
-	if operation==Waypoint_Load then
+	if operation==WAYPOINT_IO_LOAD then
 		value=slot
-	else if operation==Waypoint_Save then
+	else if operation==WAYPOINT_IO_SAVE then
 		slot=value
 	end
 end

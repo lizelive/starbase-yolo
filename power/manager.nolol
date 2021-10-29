@@ -5,10 +5,10 @@ include "../lib/devices"
 macro power_update() block
 	dtime(deltaTime)	
 	
-	Power_MaxStored=NumBats*Battery_MaxBatteryPower
+	Power_MaxStored=POWER_NUM_BATS*Battery_MaxBatteryPower
 	
 	lastCharge=Power_Stored
-	Power_Stored=NumBats*Battery_StoredBatteryPower
+	Power_Stored=POWER_NUM_BATS*Battery_StoredBatteryPower
 	Power_Net=Power_Stored-lastCharge
 	
 	lastUnitFuel=Power_UnitFuelStored
@@ -21,7 +21,7 @@ macro power_update() block
 	Power_Used=Power_Generated+Power_Net
 	
 	// manage reactors
-	if Power_Mode==Power_Mode_Max then
+	if Power_Mode==POWER_MODE_MAX then
 		FuelChamberUnitRateLimit=1
 	else if Power_Mode==Power_Mode_Auto then
 		FuelChamberUnitRateLimit=1-Battery_StoredBatteryPower

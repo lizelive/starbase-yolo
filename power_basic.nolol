@@ -12,4 +12,6 @@ include "power/manager"
 
 include "power/display"
 power_update()
-power_display()
+if Power_Display then
+	power_display()	
+end

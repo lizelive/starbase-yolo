@@ -1,6 +1,8 @@
 
 define Nav_Display = :_
 
+define SPS_SYNC = :sy
+
 // enums
 define SPS_MODE_NONE = 0
 define SPS_MODE_MONO = 1

@@ -1,22 +1,31 @@
+
+define WAYPOINT_CONTROL_IO=:WpSave
+define WAYPOINT_CONTROL_SELECT=:WpSelect
+
+
+
 define Waypoint_Selector = :WaypointSelector
 
-define Waypoint_String = :W
 
 define Waypoint_Slot = :WS
+define Waypoint_Slot_Count = :WS
+define Waypoint_Slot_World = 0
+
 
 // actions
-define Waypoint_Nothing = 0
-define Waypoint_Save = -1
-define Waypoint_Load = 1
+define WAYPOINT_IO_NOTHING = 0
+define WAYPOINT_IO_SAVE = -1
+define WAYPOINT_IO_LOAD = 1
 
 define Waypoint_Separator = "\n"
 
-define Waypoint_LoadSave = :WL
+define Waypoint_IO = :WL
 
-define Waypoint_Name = :WN
-define Waypoint_X = :WX
-define Waypoint_Y = :WY
-define Waypoint_Z = :WZ
+define Waypoint_CUR_String = :W
+define Waypoint_CUR_Name = :WN
+define Waypoint_CUR_X = :WX
+define Waypoint_CUR_Y = :WY
+define Waypoint_CUR_Z = :WZ
 
 define Waypoint_01=:W01
 define Waypoint_02=:W02
