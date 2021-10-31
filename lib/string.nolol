@@ -41,12 +41,14 @@ macro string_read_until(out, str, seperator)<ignore> block
 	end
 end
 
-macro string_parse_integer(str, out) block
+macro string_parse_integer(base, str, out) block
+	power = 1
 	out=0
 	while string_not_empty(str) do
-		string_deque(str,c)		
-		char_parse_digit_base10(c,d)		
-		out=out*10+d
+		string_pop(str,c)
+		char_parse_digit(base, c,digit)		
+		out+=digit*power
+		power *= base
 	end
 end
 

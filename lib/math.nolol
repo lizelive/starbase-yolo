@@ -14,7 +14,15 @@ macro math_is_odd(x) expr
 	math_mod(x,2)
 end
 
-macro math_divisor_remainder(d, r, n, d) block
+macro math_divisor_remainder(divisor, remainder, n, d) block
+	remainder = math_mod(n, d)
+	divisor = (n - remainder) / d
+end
+
+/// 
+macro math_divisor(divisor, n, d) block
+	remainder = math_mod(n, d)
+	divisor = (n - remainder) / d
 end
 
 // compute the gcd of two numbers
@@ -42,6 +50,10 @@ macro math_pow(o, x, p) block
 	else if p==5 then
 		o=x*x*x*x*x
 	else
-		o=x^p
+		o = 1
+		i = p
+		while i-- do
+		o *= x
+		end 
 	end
 end

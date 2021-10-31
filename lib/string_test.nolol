@@ -1,17 +1,24 @@
 include "string"
 
-char_parse_digit(10,"0",:parse0)
-char_parse_digit(10,"1",:parse1)
-char_parse_digit(10,"2",:parse2)
-char_parse_digit(10,"3",:parse3)
-char_parse_digit(10,"4",:parse4)
-char_parse_digit(10,"5",:parse5)
-char_parse_digit(10,"6",:parse6)
-char_parse_digit(10,"7",:parse7)
-char_parse_digit(10,"8",:parse8)
-char_parse_digit(10,"9",:parse9)
+input = "123"
+string_parse_integer(10, input,:parseint123)
 
-:deque="123"
-string_deque(:deque,:deque1)
-string_deque(:deque,:deque2)
-string_deque(:deque,:deque3)
+while 1 do
+:out = :parseint123
+end
+// char_parse_digit(10,"0",:parse0)
+// char_parse_digit(10,"1",:parse1)
+// char_parse_digit(10,"2",:parse2)
+// char_parse_digit(10,"3",:parse3)
+// char_parse_digit(10,"4",:parse4)
+// char_parse_digit(10,"5",:parse5)
+// char_parse_digit(10,"6",:parse6)
+// char_parse_digit(10,"7",:parse7)
+// char_parse_digit(10,"8",:parse8)
+// char_parse_digit(10,"9",:parse9)
+
+// :deque="123"
+// string_deque(:deque,:deque1)
+// string_deque(:deque,:deque2)
+// string_deque(:deque,:deque3)
+

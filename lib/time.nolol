@@ -7,3 +7,9 @@ macro dtime(out)<Clock_Time, lasttime> block
 	out=lasttime-now()
 	lasttime+=out
 end
+
+include "std/math"
+
+macro time_format(out, seconds) block
+math_mod()
+end
