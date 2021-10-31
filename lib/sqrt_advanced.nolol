@@ -1,9 +1,0 @@
-// compute sqrt
-macro math_sqrt(o, x) block
-	o = sqrt(x)
-end
-
-// compute sqrt
-macro math_inv_sqrt(o, x) block
-	o = 1/sqrt(x)
-end

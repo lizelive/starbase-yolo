@@ -1,5 +1,5 @@
-macro Rule(a, b) block
-	a=b
+macro matrix4_mul(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+
 end
 
 macro matrix4_det(det, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
@@ -20,7 +20,7 @@ macro matrix4_det(det, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i2
 	det=s0*c5-s1*c4+s2*c3+s3*c2-s4*c1+s5*c0
 end
 
-macro matrix4_copy(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+macro matrix4_cpy(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
 	m00=i00
 	m01=i01
 	m02=i02
@@ -39,7 +39,7 @@ macro matrix4_copy(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m
 	m33=i33
 end
 
-macro matrix4_inverse(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
+macro matrix4_inv(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
 	s0=i00*i11-i10*i01
 	s1=i00*i12-i10*i02
 	s2=i00*i13-i10*i03
@@ -78,3 +78,5 @@ end
 //matrix4_det(det, m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44)
 //matrix4_inverse(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
 //matrix4_copy(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
+
+macro matrix3_mul

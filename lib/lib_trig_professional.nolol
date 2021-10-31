@@ -9,7 +9,7 @@ define math_quater_rot=90
 define deg_to_rad=math_pi/180
 
 macro angle_mod(x) expr
-	acos(sin(x))
+	asin(sin(x))
 end
 
 macro math_acos(out, x) block

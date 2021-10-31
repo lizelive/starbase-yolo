@@ -1,0 +1,13 @@
+include "std/math"
+include "std/logic"
+
+
+
+
+define LCR_A=1381
+define LCR_B=3.241
+
+macro lcg(seed)<lcr_a,lcr_b> block
+	seed=seed*lcr_a+lcr_b
+	seed=math_mod(seed,1)
+end
