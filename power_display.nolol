@@ -1,7 +1,5 @@
-include "../config/power"
-include "../config/ux"
-
-include "../lib/string"
+include "lib_string"
+include "lib_time"
 
 include "std/math"
 macro power_display() block
@@ -28,8 +26,9 @@ macro power_display() block
 	end
 	timeToExtreme=math_floor(timeToExtreme)
 	max = 99999
-	timeToExtreme=math_clamp(timeToExtreme,-max,max) // display at most a day of power
-	msg+=NEW_LINE+timeToExtreme+"s"
+
+	time_format(timeToExtreme, timeToExtreme)
+	msg+=NEW_LINE+timeToExtreme
 	
 	Display_Power=msg
 	

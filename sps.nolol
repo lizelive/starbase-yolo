@@ -1,5 +1,10 @@
 include "std/logic"
 
+// enums
+define SPS_MODE_NONE=0
+define SPS_MODE_MONO=1
+define SPS_MODE_QUAD=4
+
 macro sps_calc(X, Y, Z, R1, R2, R3, R3)<CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4> line
 	X=R1/CX1+R2/CX2+R3/CX3+R4/CX4; Y=R1/CY1+R2/CY2+R3/CY3+R4/CY4; Z=R1/CZ1+R2/CZ2+R3/CZ3+R4/CZ4
 end
@@ -31,7 +36,7 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	// measure4> R4=MaxRange-Receiver1_SignalStrength; R4*=R4; next=measure1; Receiver1_TargetMessage=TargetMessage1; goto calc
 	// calc> 
 	
-
+	
 	Receiver_TargetMessage=TargetMessage1
 	Receiver_SignalStrength=0
 	logic_wait(Receiver_SignalStrength)	
@@ -43,7 +48,7 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	logic_wait(Receiver_SignalStrength)	
 	R2=MaxRange-Receiver_SignalStrength
 	R2*=R2
-
+	
 	Receiver_TargetMessage=TargetMessage3
 	Receiver_SignalStrength=0
 	logic_wait(Receiver_SignalStrength)	
@@ -55,7 +60,7 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	logic_wait(Receiver_SignalStrength)	
 	R4=MaxRange-Receiver_SignalStrength
 	R4*=R4
-
+	
 	// Receiver_TargetMessage=TargetMessage1 $
 	// R1=MaxRange-Receiver_SignalStrength
 	// R1*=R1
@@ -72,3 +77,20 @@ macro sps_mono(X, Y, Z, Receiver_TargetMessage, Receiver_SignalStrength)<MaxRang
 	sps_calc(X,Y,Z,R1,R2,R3,R3)	
 end
 
+
+macro sps_full(X, Y, Z, Mode, Receiver_1_Signal_Strength, Receiver_1_Target_Message, Receiver_2_Signal_Strength, Receiver_2_Target_Message, Receiver_3_Signal_Strength, Receiver_3_Target_Message, Receiver_4_Signal_Strength, Receiver_4_Target_Message) block
+	if Mode!=SPS_MODE_NONE then
+		sps_load_consts()		
+		if Mode==SPS_MODE_QUAD then
+			sps_quad_init(Receiver_1_Signal_Strength,Receiver_2_TargetMessage,Receiver_3_TargetMessage,Receiver_4_TargetMessage)			
+		end
+		while 1 do
+			if Mode==SPS_MODE_MONO then
+				sps_mono(X,Y,Z,Receiver_1_Target_Message,Receiver_1_Signal_Strength)				
+			else if Mode==SPS_MODE_QUAD then
+				sps_quad(X,Y,Z,Receiver_1_Signal_Strength,Receiver_2_Signal_Strength,Receiver_3_Signal_Strength,Receiver_4_Signal_Strength)				
+			end
+			SPS1_T=Clock_Time
+		end
+	end
+end

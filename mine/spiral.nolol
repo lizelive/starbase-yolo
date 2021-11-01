@@ -1,5 +1,5 @@
-include "../lib/trig"
-include "config"
+include "lib_trig"
+include "z_config"
 
 // resting position
 t=MineTime*Speed

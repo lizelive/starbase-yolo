@@ -1,0 +1,33 @@
+include "std/math"
+include "lib_math"
+
+// use global time
+macro now()<Clock_Time> expr
+	Clock_Time
+end
+
+macro dtime(out)<Clock_Time, lasttime> block
+	out=lasttime-now()
+	lasttime+=out
+end
+
+
+macro time_format(out, time) block
+	//if time > 3600
+	math_divisor_remainder(minutes,seconds,time,60)	
+	math_divisor_remainder(hours,minutes,minutes,60)	
+	math_divisor_remainder(days,hours,hours,24)	
+	if days>100 then
+		out="a long time"
+	else if days then
+		out=days+"d"+hours+"h"
+	else if hours then
+		out=hours+"h"+minutes+"m"
+	else if minutes then
+		out=minutes+"m"+seconds+"s"
+	else if second then
+		out=seconds+"s"
+	else
+		out="now"
+	end
+end

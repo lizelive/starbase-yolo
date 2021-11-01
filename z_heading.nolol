@@ -1,7 +1,7 @@
-include "../lib/trig_advanced"
-include "../lib/vector"
-include "../lib/util"
-include "../config/nav"
+include "lib_trig_advanced"
+include "lib_vector"
+include "lib_util"
+include "z_config"
 
 
 

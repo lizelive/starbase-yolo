@@ -1,0 +1,17 @@
+include "lib_debug"
+include "lib_string"
+include "lib_time"
+include "lib_devices"
+
+include "z_config"
+include "power_manager"
+include "power_display"
+
+
+
+
+
+power_update()
+if Power_Display then
+	power_display()	
+end

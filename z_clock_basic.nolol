@@ -1,5 +1,5 @@
-include "lib/time"
-include "lib/math"
+include "lib_time"
+include "lib_math"
 define TimePerLine=1/5
 
 while 1 do

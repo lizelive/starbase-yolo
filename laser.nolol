@@ -9,10 +9,11 @@ define Dist=:RF1
 define X=0
 define Y=0
 
-
-if LaserTime>:Time or LaserDist>Dist then
-	LaserDist=Dist
-	LaserTime=Time
-    LaserX=X
-    LaserY=Y
+macro update_laser(x, y) block
+	if LaserTime>:Time or LaserDist>Dist then
+		LaserDist=Dist
+		LaserTime=Time
+		LaserX=X
+		LaserY=Y
+	end
 end

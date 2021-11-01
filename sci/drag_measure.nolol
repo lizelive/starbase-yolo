@@ -1,7 +1,7 @@
 include "sps"
 include "../config"
-include "../lib/devices"
-include "../lib/vector"
+include "lib_devices"
+include "lib_vector"
 define steps_per_speed=20
 
 

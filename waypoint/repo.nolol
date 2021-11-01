@@ -1,4 +1,4 @@
-include "../config/waypoint"
+include "z_config"
 include "std/logic"
 
 if WAYPOINT_IO_LOADSave then

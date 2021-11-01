@@ -1,4 +1,4 @@
-include "sqrt"
+include "lib_math_small"
 
 macro vector_sub(xo, yo, zo, xa, ya, za, xb, yb, zb) block
 	xo=xa-xb

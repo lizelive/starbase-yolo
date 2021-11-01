@@ -1,4 +1,4 @@
-include "config"
+include "z_config"
 include "std/logic"
 include "std/math"
 

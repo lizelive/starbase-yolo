@@ -1,5 +1,5 @@
 include "sps"
-include "../lib/devices"
+include "lib_devices"
 include "std/math"
 
 while 1 do

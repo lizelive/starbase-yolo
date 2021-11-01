@@ -1,4 +1,4 @@
-include "config"
+include "z_config"
 include "trig"
 
 x=TargetX-PosX; y=TargetY-PosY; z=TargetZ-PosZ

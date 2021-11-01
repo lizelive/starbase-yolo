@@ -1,0 +1,227 @@
+DEFINE CONTROL_FORWARD_BACK=:FCUFORWARD
+DEFINE CONTROL_RIGHT_LEFT=:FCURIGHTLEFT
+DEFINE CONTROL_UP_DOWN=:FCUUPDOWN
+DEFINE CONTROL_PITCH=:FCUROTATIONALPITCH
+DEFINE CONTROL_YAW=:FCUROTATIONALYAW
+DEFINE CONTROL_ROLL=:FCUROTATIONALROLL
+
+DEFINE FCU_FORWARD=:FF
+DEFINE FCU_BACKWARDS=:FB
+DEFINE FCU_RIGHT_LEFT=:FL
+DEFINE FCU_UP_DOWN=:FU
+DEFINE FCU_ROTATIONAL_PITCH=:FP
+DEFINE FCU_ROTATIONAL_YAW=:FY
+DEFINE FCU_ROTATIONAL_ROLL=:FR
+
+define Flight_TurnCoefc = 0
+
+define Approach_P = 1
+define Approach_I = 0
+define Approach_D = 0
+define Mining_LaserOn = :MiningLaserOn
+
+define Stuff = 43
+
+
+// scanner
+define MatScanner_Active=:Active
+define MatScanner_Index=:Index
+define MatScanner_Results=:ScanResults
+define MatScanner_Material=:Material
+define MatScanner_Volume=:Volume
+define MatScanner_Scan=:Scan
+define MatScanner_Reset=:Reset
+define Nav_Display = :_
+
+define SPS_SYNC = :sy
+
+
+
+
+define MinSpeedForMovement=1
+define PosFilter = 0.5
+
+
+// midpoint
+
+define SPS1_Pos_X=0
+define SPS1_Pos_Y=0
+define SPS1_Pos_Z=0
+define SPS1_MODE = SPS_MODE_QUAD
+DEFINE SPS1_T=:W
+DEFINE SPS1_X=:G
+DEFINE SPS1_Y=:H
+DEFINE SPS1_Z=:J
+DEFINE SPS1_RECEIVER1_TARGETMESSAGE=:TA
+DEFINE SPS1_RECEIVER2_TARGETMESSAGE=:TB
+DEFINE SPS1_RECEIVER3_TARGETMESSAGE=:TC
+DEFINE SPS1_RECEIVER4_TARGETMESSAGE=:TD
+DEFINE SPS1_RECEIVER1_SIGNALSTRENGTH=:SA
+DEFINE SPS1_RECEIVER2_SIGNALSTRENGTH=:SB
+DEFINE SPS1_RECEIVER3_SIGNALSTRENGTH=:SC
+DEFINE SPS1_RECEIVER4_SIGNALSTRENGTH=:SD
+
+//THE UPPER
+DEFINE SPS2_MODE = SPS_MODE_QUAD
+DEFINE SPS2_T=:P
+DEFINE SPS2_X=:Q
+DEFINE SPS2_Y=:R
+DEFINE SPS2_Z=:S
+DEFINE SPS2_REC_1_TARGET_MESSAGE=:TE
+DEFINE SPS2_REC_2_TARGET_MESSAGE=:TF
+DEFINE SPS2_REC_3_TARGET_MESSAGE=:TG
+DEFINE SPS2_REC_4_TARGET_MESSAGE=:TH
+DEFINE SPS2_REC_1_SIGNAL_STRENGTH=:SE
+DEFINE SPS2_REC_2_SIGNAL_STRENGTH=:SF
+DEFINE SPS2_REC_3_SIGNAL_STRENGTH=:SG
+DEFINE SPS2_REC_4_SIGNAL_STRENGTH=:SH
+
+
+// THE REAR
+DEFINE SPS3_MODE = SPS_MODE_MONO
+DEFINE SPS3_T=:P
+DEFINE SPS3_X=:Q
+DEFINE SPS3_Y=:R
+DEFINE SPS3_Z=:S
+DEFINE SPS3_RECEIVER1_TARGETMESSAGE=:TI
+DEFINE SPS3_RECEIVER2_TARGETMESSAGE=:TJ
+DEFINE SPS3_RECEIVER3_TARGETMESSAGE=:TK
+DEFINE SPS3_RECEIVER4_TARGETMESSAGE=:TL
+DEFINE SPS3_RECEIVER1_SIGNALSTRENGTH=:SI
+DEFINE SPS3_RECEIVER2_SIGNALSTRENGTH=:SJ
+DEFINE SPS3_RECEIVER3_SIGNALSTRENGTH=:SK
+DEFINE SPS3_RECEIVER4_SIGNALSTRENGTH=:SL
+
+macro sps_load_consts()<MaxRange, TargetMessage1, TargetMessage2, TargetMessage3, TargetMessage4, CX1, CX2, CX3, CX4, CY1, CY2, CY3, CY4, CZ1, CZ2, CZ3, CZ4> block
+	MaxRange=1000000
+	
+	TargetMessage1="origin_north"
+	TargetMessage2="origin_south"
+	TargetMessage3="origin_east"
+	TargetMessage4="origin_west"
+	
+	CX1=1279999.969
+	CX2=1279999.967
+	CX3=295384.615
+	CX4=-202105.263
+	CY1=-218947.368
+	CY2=320000.000
+	CY3=1386666.667
+	CY4=1386666.667
+	CZ1=-160000.000
+	CZ2=-160000.000
+	CZ3=160000.000
+	CZ4=160000.000
+end
+// controls
+// config for the power manager
+define Power_Display=:Power
+define Power_Mode=:PowerMode
+
+// the number of sockets on this ship
+define NumSockets=1
+
+// the number of batteries
+define NUM_BATS=1
+
+// asumes that all are of same tier
+// not used rn
+define POWER_NUM_FUEL_CHAMBERS=1
+
+// enum
+define POWER_MODE_MAX=1
+define Power_Mode_Auto=0
+define Power_Mode_Off=-1
+
+// state
+define Power_Generated_Max=:PowerMax
+define Power_Generated=:PowerGenerated
+define Power_Used=:PowerUsed
+define Power_Net=:PowerNet
+define Power_Stored=:PowerStored
+define Power_MaxStored=:PowerMaxStored
+define Power_UnitFuelStored=:FuelStored
+define Power_UnitFuelUsed=:FuelUsed
+
+define Clock_Time=:T
+
+define Clock_Tick=:I
+define Clock_Tock=:O
+
+// not sure what the l20 loop is for
+define Clock_L20_01=:L01
+define Clock_L20_02=:L02
+define Clock_L20_03=:L03
+define Clock_L20_04=:L04
+define Clock_L20_05=:L05
+define Clock_L20_06=:L06
+define Clock_L20_07=:L07
+define Clock_L20_08=:L08
+define Clock_L20_09=:L09
+define Clock_L20_10=:L10
+define Clock_L20_11=:L11
+define Clock_L20_12=:L12
+define Clock_L20_13=:L13
+define Clock_L20_14=:L14
+define Clock_L20_15=:L15
+define Clock_L20_16=:L16
+define Clock_L20_17=:L17
+define Clock_L20_18=:L18
+define Clock_L20_19=:L19
+define Clock_L20_20=:L20
+// main movement
+
+
+define Control_Mode=:mode
+
+
+
+
+define WAYPOINT_CONTROL_IO=:WpSave
+define WAYPOINT_CONTROL_SELECT=:WpSelect
+
+
+
+define Waypoint_Selector = :WaypointSelector
+
+
+define Waypoint_Slot = :WS
+define Waypoint_Slot_Count = :WS
+define Waypoint_Slot_World = 0
+
+
+// actions
+define WAYPOINT_IO_NOTHING = 0
+define WAYPOINT_IO_SAVE = -1
+define WAYPOINT_IO_LOAD = 1
+
+define Waypoint_Separator = "\n"
+
+define Waypoint_IO = :WL
+
+define Waypoint_CUR_String = :W
+define Waypoint_CUR_Name = :WN
+define Waypoint_CUR_X = :WX
+define Waypoint_CUR_Y = :WY
+define Waypoint_CUR_Z = :WZ
+
+define Waypoint_01=:W01
+define Waypoint_02=:W02
+define Waypoint_03=:W03
+define Waypoint_04=:W04
+define Waypoint_05=:W05
+define Waypoint_06=:W06
+define Waypoint_07=:W07
+define Waypoint_08=:W08
+define Waypoint_09=:W09
+define Waypoint_10=:W10
+// define Waypoint_11=:W11
+// define Waypoint_12=:W12
+// define Waypoint_13=:W13
+// define Waypoint_14=:W14
+// define Waypoint_15=:W15
+// define Waypoint_16=:W16
+// define Waypoint_17=:W17
+// define Waypoint_18=:W18
+// define Waypoint_19=:W19
+// define Waypoint_20=:W20

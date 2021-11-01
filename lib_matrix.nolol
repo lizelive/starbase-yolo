@@ -1,5 +1,5 @@
 macro matrix4_mul(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
-
+	
 end
 
 macro matrix4_det(det, i00, i01, i02, i03, i10, i11, i12, i13, i20, i21, i22, i23, i30, i31, i32, i33) block
@@ -79,4 +79,61 @@ end
 //matrix4_inverse(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
 //matrix4_copy(m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,i11,i12,i13,i14,i21,i22,i23,i24,i31,i32,i33,i34,i41,i42,i43,i44)
 
-macro matrix3_mul
+// ClearAll[var]
+// var[var_]:= Function[cord,symbol@StringRiffle[{var,cord},""]]
+// l=Array[StringTemplate["l````"],{3,3}];
+// r=Array[StringTemplate["r````"],{3,3}];
+// o=Array[StringTemplate["o````"],{3,3}];
+
+// symbol=StringTemplate["``"];
+// set=StringTemplate["``=``"];
+// times=StringTemplate["``*``"];
+// plus=StringTemplate["``+``"];
+// MapThread[set,{Flatten[o],Flatten[l.r/.{Times->times,Plus->plus}]}];
+// StringRiffle[%,"\n"]
+
+macro matrix3_mul(o11, o12, o13, o21, o22, o23, o31, o32, o33, l11, l12, l13, l21, l22, l23, l31, l32, l33, r11, r12, r13, r21, r22, r23, r31, r32, r33) block
+	o11=l11*r11+l12*r21
+	o12=l11*r12+l12*r22
+	o13=l11*r13+l12*r23
+	o21=l21*r11+l22*r21
+	o22=l21*r12+l22*r22
+	o23=l21*r13+l22*r23
+	o31=l31*r11+l32*r21
+	o32=l31*r12+l32*r22
+	o33=l31*r13+l32*r23
+end
+
+macro matrix3_det(det, m11, m12, m13, m21, m22, m23, m31, m32, m33) block
+	det=-m13*m22*m31+m12*m23*m31+m13*m21*m32-m11*m23*m32-m12*m21*m33+m11*m22*m33
+end
+
+
+macro matrix3_cpy(o11, o12, o13, o21, o22, o23, o31, o32, o33, m11, m12, m13, m21, m22, m23, m31, m32, m33) block
+	o11=m11
+	o12=m12
+	o13=m13
+	o21=m21
+	o22=m22
+	o23=m23
+	o31=m31
+	o32=m32
+	o33=m33
+end
+
+
+macro matrix3_inv(o11, o12, o13, o21, o22, o23, o31, o32, o33, m11, m12, m13, m21, m22, m23, m31, m32, m33) block
+	matrix3_det(det,m11,m12,m13,m21,m22,m23,m31,m32,m33)	
+	
+	o11=(m22*m33-m23)/det
+	o12=(m13*m32-m12)/det
+	o13=(m12*m23-m13)/det
+	o21=(m23*m31-m21)/det
+	o22=(m11*m33-m13)/det
+	o23=(m13*m21-m11)/det
+	o31=(m21*m32-m22)/det
+	o32=(m12*m31-m11)/det
+	o33=(m11*m22-m12)/det
+end
+
+matrix3_inv(o11,o12,o13,o21,o22,o23,o31,o32,o33,m11,m12,m13,m21,m22,m23,m31,m32,m33)

@@ -1,8 +1,6 @@
-include "../lib/time"
-include "../config/power"
-include "../lib/devices"
+include "lib_time"
 
-macro power_update() block
+macro power_update()<deltaTime> block
 	dtime(deltaTime)	
 	
 	Power_MaxStored=POWER_NUM_BATS*Battery_MaxBatteryPower
