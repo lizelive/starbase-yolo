@@ -1,4 +1,4 @@
-include "trig"
+include "lib_trig"
 
 macro quat_rot_angle(out, q0, q1, q2, q3) block
 	math_acos(t,q0)	

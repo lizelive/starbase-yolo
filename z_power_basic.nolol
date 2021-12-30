@@ -7,10 +7,6 @@ include "z_config"
 include "power_manager"
 include "power_display"
 
-
-
-
-
 power_update()
 if Power_Display then
 	power_display()	

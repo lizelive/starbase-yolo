@@ -1,2 +1,4 @@
 include "z_config"
-
+include "sps"
+sps_full(X,Y,Z,Mode,Receiver_1_Signal_Strength,Receiver_1_Target_Message,Receiver_2_Signal_Strength,Receiver_2_Target_Message,Receiver_3_Signal_Strength,Receiver_3_Target_Message,Receiver_4_Signal_Strength,Receiver_4_Target_Message)
+(SPS1_Pos_X, SPS1_Pos_Y, SPS1_Pos_Z, SPS1_RECEIVER1_, )

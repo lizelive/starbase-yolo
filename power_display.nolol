@@ -1,5 +1,5 @@
-include "lib_string"
 include "lib_time"
+//include "lib_string"
 
 include "std/math"
 macro power_display() block

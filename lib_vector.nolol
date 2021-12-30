@@ -5,7 +5,7 @@ macro vector_sub(xo, yo, zo, xa, ya, za, xb, yb, zb) block
 	yo=ya-yb
 	zo=za-zb
 end
-
+*
 
 macro vector_dist(o, xa, ya, za, xb, yb, zb) block
 	vector_sub(tx,ty,tz,xa,ya,za,xb,yb,zb)	
