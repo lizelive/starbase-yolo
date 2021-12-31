@@ -1,0 +1,76 @@
+digraph world {
+    //graph [layout = fdp ];
+
+    // systems
+    node[ shape = circle ]
+    Sps1
+    Sps2
+    Sps3
+    PoseMan
+    Velman
+    Clock
+    PowerMan
+    OptiSpeedoMan
+    LocalVelMan
+    WaypointMan
+    LidarMan
+    AimMan
+    CompassSys
+
+    // config
+    node[ shape = triangle]
+    Sps1Mode
+    Sps2Mode
+    Sps3Mode
+    Sps4Mode
+
+    // hardware
+    node[ shape = hexagon ]
+    Sps1Rec1SignalStrength // the signal strength
+    
+    
+    // displays
+    node[ shape = circle ]
+    CompassDisp
+
+    // state
+    node [shape = box];
+    Time
+    X Y Z
+    Sp1X Sp1Y Sp1Z
+    Sp2X Sp2Y Sp2Z
+    Sp3X Sp3Y Sp3Z
+    { WX WY WZ }
+    { ClosestPointDX ClosestPointDY ClosestPointDZ }
+
+    node [color = red];
+    
+    Clock -> Time
+
+    {X Y Z Time} -> Velman
+    OptiSpeedoX -> Velman
+    
+    Velman -> {VelX VelY VelZ}
+    // -> PoseMan
+    {VelX VelY VelZ} -> Autopiolt
+    // Steps
+    Sps1Mode -> Sps1 -> {Sp1X Sp1Y Sp1Z} -> PoseMan
+    Sps2Mode -> Sps2 -> {Sp2X Sp2Y Sp2Z} -> PoseMan
+    Sps3Mode -> Sps3 -> {Sp3X Sp3Y Sp3Z} -> PoseMan
+
+    PoseMan -> {X, Y, Z, RotW, RotX, RotY, RotZ} -> { Compass, Autopiolt }
+    { X, Y, Z } -> WaypointMan -> { WX WY WZ } -> Autopiolt
+
+    Autopiolt -> {TargetVelX TargetVelY TargetVelZ} -> Transformer -> {TargetLocalVelX TargetLocacalVelY TargetLocalVelZ}
+    {RotW, RotX, RotY, RotZ} -> Transformer
+
+    OptiSpeedoMan -> { OptiSpeedoX OptiSpeedoY OptiSpeedoZ } -> LocalVelMan
+    LocalVelMan -> { LocalVelX LocalVelY LocalVelZ }
+    
+    BatteryCharge -> PowerMan
+    {VelX VelY VelZ} -> Speed
+    {VelX VelY VelZ} -> LocalVelMan
+    
+    BreakingDistance
+    LidarMan -> { ClosestPointDX ClosestPointDY ClosestPointDZ }
+}
