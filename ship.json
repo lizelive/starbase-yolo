@@ -1,0 +1,43 @@
+{
+    "state": [
+        {
+            "var": "PowerMin",
+            "name": "Power.Min",
+            "description": "min power for generator",
+            "default": 0,
+            "type": "number"
+        },
+        {
+            "var": "PowerMode",
+            "name": "Power.Min",
+            "description": "min power for generator",
+            "default": 0,
+            "type": "number"
+        }
+    ],
+    "defs": [
+        {
+            "name": "Generator.Mode",
+            "type" : "enum",
+            "values" : {
+                "Minium": -1,
+                "Auto": 0,
+                "Maxium": 1
+            }
+        },
+        {
+            "type" : "struct",
+            "name" : "Vector3",
+            "fields": ["x", "y", "z"]
+        }
+    ],
+    "config": [
+        {
+            "title": "nice"
+        }
+    ],
+    "hardware":"nice",
+    "isan": {
+        "mode": 3
+    }
+}

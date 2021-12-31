@@ -1,0 +1,91 @@
+include "std/math"
+
+macro mfd_input(page, slot, page_input, slot_input, value_input) block
+	slot+=slot_input
+	slot_input=0
+	slot=math_mod(slot,5)
+	page+=page_input
+	page=math_mod(page,5)
+	page_input=0
+end
+
+
+macro mfd_render(display, page, slot, dvalue) block
+	slot_index=-1
+	while ++slot_index>=DisplayNumLines do
+		mod=(slot_index==slot)*dvalue
+		mfd_mod(value,title,page,slot_index)		
+		// if not title then
+		// 	slot=0
+		// 	break 
+		// end
+		
+		if slot_index then
+			if slot_index==slot then
+				display+=">"
+				value+=dvalue
+			else
+				display+=" "
+			end
+			display+=title+": "+value+"\n"
+		else
+			display=title
+		end
+		
+	end
+end
+
+define page=:page
+define slot=:slot
+define display=:mfd
+
+macro mfd_main() block
+	
+	if not page then page=0 end
+	if not slot then slot=0 end
+	mfd_input(page,slot,page_input,slot_input,value_input)	
+	display=""
+	mfd_render(display,page,slot,value_input)	
+	
+end
+
+
+define DisplayNumLines=6
+
+macro mfd_mod(value, title, page, slot) block
+	//slot = math_clamp(slot,0,5)
+	//page = math_clamp(page,0,5)
+	offset=data+page*DisplayNumLines+slot
+	goto offset
+	data> 
+	$ title="Gen"; goto exit $
+	$ title="Mode"; value+=:GenMode; :GenMode=value; goto exit $
+	$ title="Min"; value+=:GenMin; :GenMin=value; goto exit $
+	$ title="Max"; value+=:GetMaxl; :GetMax=value; goto exit $
+	$ title="TimeRemaing"; goto exit $
+	$ title="unused"; goto exit $
+	$ title="unused"; goto exit $
+	
+	$ title="Nav"; goto exit $
+	$ title="Target X"; goto exit $
+	$ title="Target Y"; goto exit $
+	$ title="Target Z"; goto exit $
+	$ title="Speed"; goto exit $
+	$ title="unused"; goto exit $
+	$ title="unused"; goto exit $
+	exit> 
+end
+
+// macro mfd_set(value, page, slot) block
+// 	if page==0 then
+// 		if slot==1 then
+// 			:GenMode=value
+// 		else if slot==2 then
+// 			:GenMin=value
+// 		else if slot==3 then
+// 			:GetMax=value
+// 		end
+// 	end
+// end
+
+mfd_main()
